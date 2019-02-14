@@ -1,0 +1,5 @@
+ip: "192.168.17.48"
+port: 2008
+rpc_secret_key: 769af463a39f077a0340a189e9c1ec28
+secret: "{1BA09530-F9E6-478D-9965-7EB31A59537E}"
+user: Operation-service

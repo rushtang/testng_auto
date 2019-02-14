@@ -1,0 +1,929 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="model.jumei_product.dao.tuanmei_product_inventoryMapper">
+  <resultMap id="BaseResultMap" type="model.jumei_product.pojo.tuanmei_product_inventory">
+    <constructor>
+      <idArg column="sku_no" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="product_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="spu_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="attribute" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="market_price" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="jumei_price" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="weight" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="size" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="color" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="product_type" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="sku_type" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="cost" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="inventory_onhand" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="inventory_locked" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="inventory_ordered" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="inventory_reserved" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="inventory_onroad" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="virtual_fullfillment" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="min_inventory" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="display_selling_num" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="is_available" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="is_enabled" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="is_bom" javaType="java.lang.Boolean" jdbcType="BIT" />
+      <arg column="is_high_value" javaType="java.lang.Boolean" jdbcType="BIT" />
+      <arg column="is_thermostatic_storage" javaType="java.lang.Boolean" jdbcType="BIT" />
+      <arg column="is_luxury" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="upc_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="width" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="height" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="length" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="is_hot" javaType="java.lang.Boolean" jdbcType="BIT" />
+      <arg column="property" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="create_time" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="update_time" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="where_to_sell" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="note" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="purchase_channels" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="submodel_order" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="sku_category" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="parent_sku" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="supplier_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="expir_date" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="season_property" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="data_timestamp" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="merchant_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="first_time" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="pop_shipping_type" javaType="java.lang.Boolean" jdbcType="BIT" />
+      <arg column="selfsale_sku_no" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="unit" javaType="java.lang.Byte" jdbcType="TINYINT" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    sku_no, product_id, spu_id, attribute, market_price, jumei_price, weight, size, color, 
+    product_type, sku_type, cost, inventory_onhand, inventory_locked, inventory_ordered, 
+    inventory_reserved, inventory_onroad, virtual_fullfillment, min_inventory, display_selling_num, 
+    is_available, is_enabled, is_bom, is_high_value, is_thermostatic_storage, is_luxury, 
+    upc_code, width, height, length, is_hot, property, create_time, update_time, where_to_sell, 
+    note, purchase_channels, submodel_order, sku_category, parent_sku, supplier_code, 
+    expir_date, season_property, data_timestamp, merchant_id, first_time, pop_shipping_type, 
+    selfsale_sku_no, unit
+  </sql>
+  <select id="selectByExample" parameterType="model.jumei_product.pojo.tuanmei_product_inventoryExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tuanmei_product_inventory
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tuanmei_product_inventory
+    where sku_no = #{skuNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from tuanmei_product_inventory
+    where sku_no = #{skuNo,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="model.jumei_product.pojo.tuanmei_product_inventoryExample">
+    delete from tuanmei_product_inventory
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="model.jumei_product.pojo.tuanmei_product_inventory">
+    insert into tuanmei_product_inventory (sku_no, product_id, spu_id, 
+      attribute, market_price, jumei_price, 
+      weight, size, color, 
+      product_type, sku_type, cost, 
+      inventory_onhand, inventory_locked, inventory_ordered, 
+      inventory_reserved, inventory_onroad, virtual_fullfillment, 
+      min_inventory, display_selling_num, is_available, 
+      is_enabled, is_bom, is_high_value, 
+      is_thermostatic_storage, is_luxury, upc_code, 
+      width, height, length, 
+      is_hot, property, create_time, 
+      update_time, where_to_sell, note, 
+      purchase_channels, submodel_order, sku_category, 
+      parent_sku, supplier_code, expir_date, 
+      season_property, data_timestamp, merchant_id, 
+      first_time, pop_shipping_type, selfsale_sku_no, 
+      unit)
+    values (#{skuNo,jdbcType=VARCHAR}, #{productId,jdbcType=INTEGER}, #{spuId,jdbcType=INTEGER}, 
+      #{attribute,jdbcType=VARCHAR}, #{marketPrice,jdbcType=DECIMAL}, #{jumeiPrice,jdbcType=DECIMAL}, 
+      #{weight,jdbcType=DECIMAL}, #{size,jdbcType=VARCHAR}, #{color,jdbcType=VARCHAR}, 
+      #{productType,jdbcType=VARCHAR}, #{skuType,jdbcType=VARCHAR}, #{cost,jdbcType=DECIMAL}, 
+      #{inventoryOnhand,jdbcType=INTEGER}, #{inventoryLocked,jdbcType=INTEGER}, #{inventoryOrdered,jdbcType=INTEGER}, 
+      #{inventoryReserved,jdbcType=INTEGER}, #{inventoryOnroad,jdbcType=INTEGER}, #{virtualFullfillment,jdbcType=INTEGER}, 
+      #{minInventory,jdbcType=INTEGER}, #{displaySellingNum,jdbcType=INTEGER}, #{isAvailable,jdbcType=TINYINT}, 
+      #{isEnabled,jdbcType=TINYINT}, #{isBom,jdbcType=BIT}, #{isHighValue,jdbcType=BIT}, 
+      #{isThermostaticStorage,jdbcType=BIT}, #{isLuxury,jdbcType=TINYINT}, #{upcCode,jdbcType=VARCHAR}, 
+      #{width,jdbcType=DECIMAL}, #{height,jdbcType=DECIMAL}, #{length,jdbcType=DECIMAL}, 
+      #{isHot,jdbcType=BIT}, #{property,jdbcType=VARCHAR}, #{createTime,jdbcType=INTEGER}, 
+      #{updateTime,jdbcType=INTEGER}, #{whereToSell,jdbcType=VARCHAR}, #{note,jdbcType=VARCHAR}, 
+      #{purchaseChannels,jdbcType=VARCHAR}, #{submodelOrder,jdbcType=TINYINT}, #{skuCategory,jdbcType=VARCHAR}, 
+      #{parentSku,jdbcType=VARCHAR}, #{supplierCode,jdbcType=VARCHAR}, #{expirDate,jdbcType=TINYINT}, 
+      #{seasonProperty,jdbcType=TINYINT}, #{dataTimestamp,jdbcType=TIMESTAMP}, #{merchantId,jdbcType=INTEGER}, 
+      #{firstTime,jdbcType=INTEGER}, #{popShippingType,jdbcType=BIT}, #{selfsaleSkuNo,jdbcType=VARCHAR}, 
+      #{unit,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="model.jumei_product.pojo.tuanmei_product_inventory">
+    insert into tuanmei_product_inventory
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="skuNo != null">
+        sku_no,
+      </if>
+      <if test="productId != null">
+        product_id,
+      </if>
+      <if test="spuId != null">
+        spu_id,
+      </if>
+      <if test="attribute != null">
+        attribute,
+      </if>
+      <if test="marketPrice != null">
+        market_price,
+      </if>
+      <if test="jumeiPrice != null">
+        jumei_price,
+      </if>
+      <if test="weight != null">
+        weight,
+      </if>
+      <if test="size != null">
+        size,
+      </if>
+      <if test="color != null">
+        color,
+      </if>
+      <if test="productType != null">
+        product_type,
+      </if>
+      <if test="skuType != null">
+        sku_type,
+      </if>
+      <if test="cost != null">
+        cost,
+      </if>
+      <if test="inventoryOnhand != null">
+        inventory_onhand,
+      </if>
+      <if test="inventoryLocked != null">
+        inventory_locked,
+      </if>
+      <if test="inventoryOrdered != null">
+        inventory_ordered,
+      </if>
+      <if test="inventoryReserved != null">
+        inventory_reserved,
+      </if>
+      <if test="inventoryOnroad != null">
+        inventory_onroad,
+      </if>
+      <if test="virtualFullfillment != null">
+        virtual_fullfillment,
+      </if>
+      <if test="minInventory != null">
+        min_inventory,
+      </if>
+      <if test="displaySellingNum != null">
+        display_selling_num,
+      </if>
+      <if test="isAvailable != null">
+        is_available,
+      </if>
+      <if test="isEnabled != null">
+        is_enabled,
+      </if>
+      <if test="isBom != null">
+        is_bom,
+      </if>
+      <if test="isHighValue != null">
+        is_high_value,
+      </if>
+      <if test="isThermostaticStorage != null">
+        is_thermostatic_storage,
+      </if>
+      <if test="isLuxury != null">
+        is_luxury,
+      </if>
+      <if test="upcCode != null">
+        upc_code,
+      </if>
+      <if test="width != null">
+        width,
+      </if>
+      <if test="height != null">
+        height,
+      </if>
+      <if test="length != null">
+        length,
+      </if>
+      <if test="isHot != null">
+        is_hot,
+      </if>
+      <if test="property != null">
+        property,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="whereToSell != null">
+        where_to_sell,
+      </if>
+      <if test="note != null">
+        note,
+      </if>
+      <if test="purchaseChannels != null">
+        purchase_channels,
+      </if>
+      <if test="submodelOrder != null">
+        submodel_order,
+      </if>
+      <if test="skuCategory != null">
+        sku_category,
+      </if>
+      <if test="parentSku != null">
+        parent_sku,
+      </if>
+      <if test="supplierCode != null">
+        supplier_code,
+      </if>
+      <if test="expirDate != null">
+        expir_date,
+      </if>
+      <if test="seasonProperty != null">
+        season_property,
+      </if>
+      <if test="dataTimestamp != null">
+        data_timestamp,
+      </if>
+      <if test="merchantId != null">
+        merchant_id,
+      </if>
+      <if test="firstTime != null">
+        first_time,
+      </if>
+      <if test="popShippingType != null">
+        pop_shipping_type,
+      </if>
+      <if test="selfsaleSkuNo != null">
+        selfsale_sku_no,
+      </if>
+      <if test="unit != null">
+        unit,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="skuNo != null">
+        #{skuNo,jdbcType=VARCHAR},
+      </if>
+      <if test="productId != null">
+        #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="spuId != null">
+        #{spuId,jdbcType=INTEGER},
+      </if>
+      <if test="attribute != null">
+        #{attribute,jdbcType=VARCHAR},
+      </if>
+      <if test="marketPrice != null">
+        #{marketPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="jumeiPrice != null">
+        #{jumeiPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="weight != null">
+        #{weight,jdbcType=DECIMAL},
+      </if>
+      <if test="size != null">
+        #{size,jdbcType=VARCHAR},
+      </if>
+      <if test="color != null">
+        #{color,jdbcType=VARCHAR},
+      </if>
+      <if test="productType != null">
+        #{productType,jdbcType=VARCHAR},
+      </if>
+      <if test="skuType != null">
+        #{skuType,jdbcType=VARCHAR},
+      </if>
+      <if test="cost != null">
+        #{cost,jdbcType=DECIMAL},
+      </if>
+      <if test="inventoryOnhand != null">
+        #{inventoryOnhand,jdbcType=INTEGER},
+      </if>
+      <if test="inventoryLocked != null">
+        #{inventoryLocked,jdbcType=INTEGER},
+      </if>
+      <if test="inventoryOrdered != null">
+        #{inventoryOrdered,jdbcType=INTEGER},
+      </if>
+      <if test="inventoryReserved != null">
+        #{inventoryReserved,jdbcType=INTEGER},
+      </if>
+      <if test="inventoryOnroad != null">
+        #{inventoryOnroad,jdbcType=INTEGER},
+      </if>
+      <if test="virtualFullfillment != null">
+        #{virtualFullfillment,jdbcType=INTEGER},
+      </if>
+      <if test="minInventory != null">
+        #{minInventory,jdbcType=INTEGER},
+      </if>
+      <if test="displaySellingNum != null">
+        #{displaySellingNum,jdbcType=INTEGER},
+      </if>
+      <if test="isAvailable != null">
+        #{isAvailable,jdbcType=TINYINT},
+      </if>
+      <if test="isEnabled != null">
+        #{isEnabled,jdbcType=TINYINT},
+      </if>
+      <if test="isBom != null">
+        #{isBom,jdbcType=BIT},
+      </if>
+      <if test="isHighValue != null">
+        #{isHighValue,jdbcType=BIT},
+      </if>
+      <if test="isThermostaticStorage != null">
+        #{isThermostaticStorage,jdbcType=BIT},
+      </if>
+      <if test="isLuxury != null">
+        #{isLuxury,jdbcType=TINYINT},
+      </if>
+      <if test="upcCode != null">
+        #{upcCode,jdbcType=VARCHAR},
+      </if>
+      <if test="width != null">
+        #{width,jdbcType=DECIMAL},
+      </if>
+      <if test="height != null">
+        #{height,jdbcType=DECIMAL},
+      </if>
+      <if test="length != null">
+        #{length,jdbcType=DECIMAL},
+      </if>
+      <if test="isHot != null">
+        #{isHot,jdbcType=BIT},
+      </if>
+      <if test="property != null">
+        #{property,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=INTEGER},
+      </if>
+      <if test="whereToSell != null">
+        #{whereToSell,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null">
+        #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="purchaseChannels != null">
+        #{purchaseChannels,jdbcType=VARCHAR},
+      </if>
+      <if test="submodelOrder != null">
+        #{submodelOrder,jdbcType=TINYINT},
+      </if>
+      <if test="skuCategory != null">
+        #{skuCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="parentSku != null">
+        #{parentSku,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierCode != null">
+        #{supplierCode,jdbcType=VARCHAR},
+      </if>
+      <if test="expirDate != null">
+        #{expirDate,jdbcType=TINYINT},
+      </if>
+      <if test="seasonProperty != null">
+        #{seasonProperty,jdbcType=TINYINT},
+      </if>
+      <if test="dataTimestamp != null">
+        #{dataTimestamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="merchantId != null">
+        #{merchantId,jdbcType=INTEGER},
+      </if>
+      <if test="firstTime != null">
+        #{firstTime,jdbcType=INTEGER},
+      </if>
+      <if test="popShippingType != null">
+        #{popShippingType,jdbcType=BIT},
+      </if>
+      <if test="selfsaleSkuNo != null">
+        #{selfsaleSkuNo,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null">
+        #{unit,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="model.jumei_product.pojo.tuanmei_product_inventoryExample" resultType="java.lang.Long">
+    select count(*) from tuanmei_product_inventory
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update tuanmei_product_inventory
+    <set>
+      <if test="record.skuNo != null">
+        sku_no = #{record.skuNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.productId != null">
+        product_id = #{record.productId,jdbcType=INTEGER},
+      </if>
+      <if test="record.spuId != null">
+        spu_id = #{record.spuId,jdbcType=INTEGER},
+      </if>
+      <if test="record.attribute != null">
+        attribute = #{record.attribute,jdbcType=VARCHAR},
+      </if>
+      <if test="record.marketPrice != null">
+        market_price = #{record.marketPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.jumeiPrice != null">
+        jumei_price = #{record.jumeiPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.weight != null">
+        weight = #{record.weight,jdbcType=DECIMAL},
+      </if>
+      <if test="record.size != null">
+        size = #{record.size,jdbcType=VARCHAR},
+      </if>
+      <if test="record.color != null">
+        color = #{record.color,jdbcType=VARCHAR},
+      </if>
+      <if test="record.productType != null">
+        product_type = #{record.productType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.skuType != null">
+        sku_type = #{record.skuType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cost != null">
+        cost = #{record.cost,jdbcType=DECIMAL},
+      </if>
+      <if test="record.inventoryOnhand != null">
+        inventory_onhand = #{record.inventoryOnhand,jdbcType=INTEGER},
+      </if>
+      <if test="record.inventoryLocked != null">
+        inventory_locked = #{record.inventoryLocked,jdbcType=INTEGER},
+      </if>
+      <if test="record.inventoryOrdered != null">
+        inventory_ordered = #{record.inventoryOrdered,jdbcType=INTEGER},
+      </if>
+      <if test="record.inventoryReserved != null">
+        inventory_reserved = #{record.inventoryReserved,jdbcType=INTEGER},
+      </if>
+      <if test="record.inventoryOnroad != null">
+        inventory_onroad = #{record.inventoryOnroad,jdbcType=INTEGER},
+      </if>
+      <if test="record.virtualFullfillment != null">
+        virtual_fullfillment = #{record.virtualFullfillment,jdbcType=INTEGER},
+      </if>
+      <if test="record.minInventory != null">
+        min_inventory = #{record.minInventory,jdbcType=INTEGER},
+      </if>
+      <if test="record.displaySellingNum != null">
+        display_selling_num = #{record.displaySellingNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.isAvailable != null">
+        is_available = #{record.isAvailable,jdbcType=TINYINT},
+      </if>
+      <if test="record.isEnabled != null">
+        is_enabled = #{record.isEnabled,jdbcType=TINYINT},
+      </if>
+      <if test="record.isBom != null">
+        is_bom = #{record.isBom,jdbcType=BIT},
+      </if>
+      <if test="record.isHighValue != null">
+        is_high_value = #{record.isHighValue,jdbcType=BIT},
+      </if>
+      <if test="record.isThermostaticStorage != null">
+        is_thermostatic_storage = #{record.isThermostaticStorage,jdbcType=BIT},
+      </if>
+      <if test="record.isLuxury != null">
+        is_luxury = #{record.isLuxury,jdbcType=TINYINT},
+      </if>
+      <if test="record.upcCode != null">
+        upc_code = #{record.upcCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.width != null">
+        width = #{record.width,jdbcType=DECIMAL},
+      </if>
+      <if test="record.height != null">
+        height = #{record.height,jdbcType=DECIMAL},
+      </if>
+      <if test="record.length != null">
+        length = #{record.length,jdbcType=DECIMAL},
+      </if>
+      <if test="record.isHot != null">
+        is_hot = #{record.isHot,jdbcType=BIT},
+      </if>
+      <if test="record.property != null">
+        property = #{record.property,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=INTEGER},
+      </if>
+      <if test="record.updateTime != null">
+        update_time = #{record.updateTime,jdbcType=INTEGER},
+      </if>
+      <if test="record.whereToSell != null">
+        where_to_sell = #{record.whereToSell,jdbcType=VARCHAR},
+      </if>
+      <if test="record.note != null">
+        note = #{record.note,jdbcType=VARCHAR},
+      </if>
+      <if test="record.purchaseChannels != null">
+        purchase_channels = #{record.purchaseChannels,jdbcType=VARCHAR},
+      </if>
+      <if test="record.submodelOrder != null">
+        submodel_order = #{record.submodelOrder,jdbcType=TINYINT},
+      </if>
+      <if test="record.skuCategory != null">
+        sku_category = #{record.skuCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="record.parentSku != null">
+        parent_sku = #{record.parentSku,jdbcType=VARCHAR},
+      </if>
+      <if test="record.supplierCode != null">
+        supplier_code = #{record.supplierCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.expirDate != null">
+        expir_date = #{record.expirDate,jdbcType=TINYINT},
+      </if>
+      <if test="record.seasonProperty != null">
+        season_property = #{record.seasonProperty,jdbcType=TINYINT},
+      </if>
+      <if test="record.dataTimestamp != null">
+        data_timestamp = #{record.dataTimestamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.merchantId != null">
+        merchant_id = #{record.merchantId,jdbcType=INTEGER},
+      </if>
+      <if test="record.firstTime != null">
+        first_time = #{record.firstTime,jdbcType=INTEGER},
+      </if>
+      <if test="record.popShippingType != null">
+        pop_shipping_type = #{record.popShippingType,jdbcType=BIT},
+      </if>
+      <if test="record.selfsaleSkuNo != null">
+        selfsale_sku_no = #{record.selfsaleSkuNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.unit != null">
+        unit = #{record.unit,jdbcType=TINYINT},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update tuanmei_product_inventory
+    set sku_no = #{record.skuNo,jdbcType=VARCHAR},
+      product_id = #{record.productId,jdbcType=INTEGER},
+      spu_id = #{record.spuId,jdbcType=INTEGER},
+      attribute = #{record.attribute,jdbcType=VARCHAR},
+      market_price = #{record.marketPrice,jdbcType=DECIMAL},
+      jumei_price = #{record.jumeiPrice,jdbcType=DECIMAL},
+      weight = #{record.weight,jdbcType=DECIMAL},
+      size = #{record.size,jdbcType=VARCHAR},
+      color = #{record.color,jdbcType=VARCHAR},
+      product_type = #{record.productType,jdbcType=VARCHAR},
+      sku_type = #{record.skuType,jdbcType=VARCHAR},
+      cost = #{record.cost,jdbcType=DECIMAL},
+      inventory_onhand = #{record.inventoryOnhand,jdbcType=INTEGER},
+      inventory_locked = #{record.inventoryLocked,jdbcType=INTEGER},
+      inventory_ordered = #{record.inventoryOrdered,jdbcType=INTEGER},
+      inventory_reserved = #{record.inventoryReserved,jdbcType=INTEGER},
+      inventory_onroad = #{record.inventoryOnroad,jdbcType=INTEGER},
+      virtual_fullfillment = #{record.virtualFullfillment,jdbcType=INTEGER},
+      min_inventory = #{record.minInventory,jdbcType=INTEGER},
+      display_selling_num = #{record.displaySellingNum,jdbcType=INTEGER},
+      is_available = #{record.isAvailable,jdbcType=TINYINT},
+      is_enabled = #{record.isEnabled,jdbcType=TINYINT},
+      is_bom = #{record.isBom,jdbcType=BIT},
+      is_high_value = #{record.isHighValue,jdbcType=BIT},
+      is_thermostatic_storage = #{record.isThermostaticStorage,jdbcType=BIT},
+      is_luxury = #{record.isLuxury,jdbcType=TINYINT},
+      upc_code = #{record.upcCode,jdbcType=VARCHAR},
+      width = #{record.width,jdbcType=DECIMAL},
+      height = #{record.height,jdbcType=DECIMAL},
+      length = #{record.length,jdbcType=DECIMAL},
+      is_hot = #{record.isHot,jdbcType=BIT},
+      property = #{record.property,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=INTEGER},
+      update_time = #{record.updateTime,jdbcType=INTEGER},
+      where_to_sell = #{record.whereToSell,jdbcType=VARCHAR},
+      note = #{record.note,jdbcType=VARCHAR},
+      purchase_channels = #{record.purchaseChannels,jdbcType=VARCHAR},
+      submodel_order = #{record.submodelOrder,jdbcType=TINYINT},
+      sku_category = #{record.skuCategory,jdbcType=VARCHAR},
+      parent_sku = #{record.parentSku,jdbcType=VARCHAR},
+      supplier_code = #{record.supplierCode,jdbcType=VARCHAR},
+      expir_date = #{record.expirDate,jdbcType=TINYINT},
+      season_property = #{record.seasonProperty,jdbcType=TINYINT},
+      data_timestamp = #{record.dataTimestamp,jdbcType=TIMESTAMP},
+      merchant_id = #{record.merchantId,jdbcType=INTEGER},
+      first_time = #{record.firstTime,jdbcType=INTEGER},
+      pop_shipping_type = #{record.popShippingType,jdbcType=BIT},
+      selfsale_sku_no = #{record.selfsaleSkuNo,jdbcType=VARCHAR},
+      unit = #{record.unit,jdbcType=TINYINT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="model.jumei_product.pojo.tuanmei_product_inventory">
+    update tuanmei_product_inventory
+    <set>
+      <if test="productId != null">
+        product_id = #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="spuId != null">
+        spu_id = #{spuId,jdbcType=INTEGER},
+      </if>
+      <if test="attribute != null">
+        attribute = #{attribute,jdbcType=VARCHAR},
+      </if>
+      <if test="marketPrice != null">
+        market_price = #{marketPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="jumeiPrice != null">
+        jumei_price = #{jumeiPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="weight != null">
+        weight = #{weight,jdbcType=DECIMAL},
+      </if>
+      <if test="size != null">
+        size = #{size,jdbcType=VARCHAR},
+      </if>
+      <if test="color != null">
+        color = #{color,jdbcType=VARCHAR},
+      </if>
+      <if test="productType != null">
+        product_type = #{productType,jdbcType=VARCHAR},
+      </if>
+      <if test="skuType != null">
+        sku_type = #{skuType,jdbcType=VARCHAR},
+      </if>
+      <if test="cost != null">
+        cost = #{cost,jdbcType=DECIMAL},
+      </if>
+      <if test="inventoryOnhand != null">
+        inventory_onhand = #{inventoryOnhand,jdbcType=INTEGER},
+      </if>
+      <if test="inventoryLocked != null">
+        inventory_locked = #{inventoryLocked,jdbcType=INTEGER},
+      </if>
+      <if test="inventoryOrdered != null">
+        inventory_ordered = #{inventoryOrdered,jdbcType=INTEGER},
+      </if>
+      <if test="inventoryReserved != null">
+        inventory_reserved = #{inventoryReserved,jdbcType=INTEGER},
+      </if>
+      <if test="inventoryOnroad != null">
+        inventory_onroad = #{inventoryOnroad,jdbcType=INTEGER},
+      </if>
+      <if test="virtualFullfillment != null">
+        virtual_fullfillment = #{virtualFullfillment,jdbcType=INTEGER},
+      </if>
+      <if test="minInventory != null">
+        min_inventory = #{minInventory,jdbcType=INTEGER},
+      </if>
+      <if test="displaySellingNum != null">
+        display_selling_num = #{displaySellingNum,jdbcType=INTEGER},
+      </if>
+      <if test="isAvailable != null">
+        is_available = #{isAvailable,jdbcType=TINYINT},
+      </if>
+      <if test="isEnabled != null">
+        is_enabled = #{isEnabled,jdbcType=TINYINT},
+      </if>
+      <if test="isBom != null">
+        is_bom = #{isBom,jdbcType=BIT},
+      </if>
+      <if test="isHighValue != null">
+        is_high_value = #{isHighValue,jdbcType=BIT},
+      </if>
+      <if test="isThermostaticStorage != null">
+        is_thermostatic_storage = #{isThermostaticStorage,jdbcType=BIT},
+      </if>
+      <if test="isLuxury != null">
+        is_luxury = #{isLuxury,jdbcType=TINYINT},
+      </if>
+      <if test="upcCode != null">
+        upc_code = #{upcCode,jdbcType=VARCHAR},
+      </if>
+      <if test="width != null">
+        width = #{width,jdbcType=DECIMAL},
+      </if>
+      <if test="height != null">
+        height = #{height,jdbcType=DECIMAL},
+      </if>
+      <if test="length != null">
+        length = #{length,jdbcType=DECIMAL},
+      </if>
+      <if test="isHot != null">
+        is_hot = #{isHot,jdbcType=BIT},
+      </if>
+      <if test="property != null">
+        property = #{property,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=INTEGER},
+      </if>
+      <if test="whereToSell != null">
+        where_to_sell = #{whereToSell,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null">
+        note = #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="purchaseChannels != null">
+        purchase_channels = #{purchaseChannels,jdbcType=VARCHAR},
+      </if>
+      <if test="submodelOrder != null">
+        submodel_order = #{submodelOrder,jdbcType=TINYINT},
+      </if>
+      <if test="skuCategory != null">
+        sku_category = #{skuCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="parentSku != null">
+        parent_sku = #{parentSku,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierCode != null">
+        supplier_code = #{supplierCode,jdbcType=VARCHAR},
+      </if>
+      <if test="expirDate != null">
+        expir_date = #{expirDate,jdbcType=TINYINT},
+      </if>
+      <if test="seasonProperty != null">
+        season_property = #{seasonProperty,jdbcType=TINYINT},
+      </if>
+      <if test="dataTimestamp != null">
+        data_timestamp = #{dataTimestamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="merchantId != null">
+        merchant_id = #{merchantId,jdbcType=INTEGER},
+      </if>
+      <if test="firstTime != null">
+        first_time = #{firstTime,jdbcType=INTEGER},
+      </if>
+      <if test="popShippingType != null">
+        pop_shipping_type = #{popShippingType,jdbcType=BIT},
+      </if>
+      <if test="selfsaleSkuNo != null">
+        selfsale_sku_no = #{selfsaleSkuNo,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null">
+        unit = #{unit,jdbcType=TINYINT},
+      </if>
+    </set>
+    where sku_no = #{skuNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="model.jumei_product.pojo.tuanmei_product_inventory">
+    update tuanmei_product_inventory
+    set product_id = #{productId,jdbcType=INTEGER},
+      spu_id = #{spuId,jdbcType=INTEGER},
+      attribute = #{attribute,jdbcType=VARCHAR},
+      market_price = #{marketPrice,jdbcType=DECIMAL},
+      jumei_price = #{jumeiPrice,jdbcType=DECIMAL},
+      weight = #{weight,jdbcType=DECIMAL},
+      size = #{size,jdbcType=VARCHAR},
+      color = #{color,jdbcType=VARCHAR},
+      product_type = #{productType,jdbcType=VARCHAR},
+      sku_type = #{skuType,jdbcType=VARCHAR},
+      cost = #{cost,jdbcType=DECIMAL},
+      inventory_onhand = #{inventoryOnhand,jdbcType=INTEGER},
+      inventory_locked = #{inventoryLocked,jdbcType=INTEGER},
+      inventory_ordered = #{inventoryOrdered,jdbcType=INTEGER},
+      inventory_reserved = #{inventoryReserved,jdbcType=INTEGER},
+      inventory_onroad = #{inventoryOnroad,jdbcType=INTEGER},
+      virtual_fullfillment = #{virtualFullfillment,jdbcType=INTEGER},
+      min_inventory = #{minInventory,jdbcType=INTEGER},
+      display_selling_num = #{displaySellingNum,jdbcType=INTEGER},
+      is_available = #{isAvailable,jdbcType=TINYINT},
+      is_enabled = #{isEnabled,jdbcType=TINYINT},
+      is_bom = #{isBom,jdbcType=BIT},
+      is_high_value = #{isHighValue,jdbcType=BIT},
+      is_thermostatic_storage = #{isThermostaticStorage,jdbcType=BIT},
+      is_luxury = #{isLuxury,jdbcType=TINYINT},
+      upc_code = #{upcCode,jdbcType=VARCHAR},
+      width = #{width,jdbcType=DECIMAL},
+      height = #{height,jdbcType=DECIMAL},
+      length = #{length,jdbcType=DECIMAL},
+      is_hot = #{isHot,jdbcType=BIT},
+      property = #{property,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=INTEGER},
+      update_time = #{updateTime,jdbcType=INTEGER},
+      where_to_sell = #{whereToSell,jdbcType=VARCHAR},
+      note = #{note,jdbcType=VARCHAR},
+      purchase_channels = #{purchaseChannels,jdbcType=VARCHAR},
+      submodel_order = #{submodelOrder,jdbcType=TINYINT},
+      sku_category = #{skuCategory,jdbcType=VARCHAR},
+      parent_sku = #{parentSku,jdbcType=VARCHAR},
+      supplier_code = #{supplierCode,jdbcType=VARCHAR},
+      expir_date = #{expirDate,jdbcType=TINYINT},
+      season_property = #{seasonProperty,jdbcType=TINYINT},
+      data_timestamp = #{dataTimestamp,jdbcType=TIMESTAMP},
+      merchant_id = #{merchantId,jdbcType=INTEGER},
+      first_time = #{firstTime,jdbcType=INTEGER},
+      pop_shipping_type = #{popShippingType,jdbcType=BIT},
+      selfsale_sku_no = #{selfsaleSkuNo,jdbcType=VARCHAR},
+      unit = #{unit,jdbcType=TINYINT}
+    where sku_no = #{skuNo,jdbcType=VARCHAR}
+  </update>
+  <select id="selectOneByExample" parameterType="model.jumei_product.pojo.tuanmei_product_inventoryExample" resultMap="BaseResultMap">
+    <!--
+      WARNING - @mbg.generated
+      This element is automatically generated by MyBatis Generator, do not modify.
+      @project https://github.com/itfsw/mybatis-generator-plugin
+    -->
+    select
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tuanmei_product_inventory
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    limit 1
+  </select>
+</mapper>

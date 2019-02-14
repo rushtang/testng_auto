@@ -1,0 +1,295 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "hash_id1": {
+      "type": "object",
+      "properties": {
+        "foreign_language_name": {
+          "type": "string"
+        },
+        "original_price": {
+          "type": "string"
+        },
+        "real_buyer_number": {
+          "type": "string"
+        },
+        "discount": {
+          "type": "string"
+        },
+        "show_tag": {
+          "type": "string"
+        },
+        "medium_name": {
+          "type": "string"
+        },
+        "deal_comments_number": {
+          "type": "string"
+        },
+        "category_v3_1_name": {
+          "type": "string"
+        },
+        "wish_number": {
+          "type": "string"
+        },
+        "deal_exposure_android": {
+          "type": "string"
+        },
+        "product_id": {
+          "type": "string"
+        },
+        "authorized": {
+          "type": "number"
+        },
+        "payment_start_time": {
+          "type": "string"
+        },
+        "deal_buyer_numbers_android": {
+          "type": "string"
+        },
+        "product_short_name": {
+          "type": "string"
+        },
+        "sale_forms": {
+          "type": "string"
+        },
+        "buyer_number": {
+          "type": "string"
+        },
+        "deal_sales_amount_iphone": {
+          "type": "string"
+        },
+        "deal_uv_iphone": {
+          "type": "string"
+        },
+        "with_new_image": {
+          "type": "string"
+        },
+        "deal_sort": {
+          "type": "string"
+        },
+        "product_properties": {
+          "type": "string"
+        },
+        "single_package_num": {
+          "type": "number"
+        },
+        "extended_definition": {
+          "type": "string"
+        },
+        "category_v3_3": {
+          "type": "string"
+        },
+        "product_reports_number": {
+          "type": "string"
+        },
+        "real_30day_buyer_number": {
+          "type": "string"
+        },
+        "extension_id": {
+          "type": "string"
+        },
+        "category_v3_4": {
+          "type": "string"
+        },
+        "category_v3_1": {
+          "type": "string"
+        },
+        "home_sale_name": {
+          "type": "string"
+        },
+        "tag_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "category_v3_2": {
+          "type": "string"
+        },
+        "category_v3_3_name": {
+          "type": "string"
+        },
+        "fake_30day_buyer_number": {
+          "type": "string"
+        },
+        "deal_buyer_numbers_iphone": {
+          "type": "string"
+        },
+        "tax": {
+          "type": "string"
+        },
+        "countries": {
+          "type": "string"
+        },
+        "priority": {
+          "type": "string"
+        },
+        "brand_id": {
+          "type": "string"
+        },
+        "chinese_name": {
+          "type": "string"
+        },
+        "start_time": {
+          "type": "string"
+        },
+        "is_published_price": {
+          "type": "string"
+        },
+        "payment_end_time": {
+          "type": "string"
+        },
+        "deposit": {
+          "type": "string"
+        },
+        "short_name": {
+          "type": "string"
+        },
+        "show_category": {
+          "type": "string"
+        },
+        "live_info": {
+          "type": "string"
+        },
+        "sku_last_sale_time": {
+          "type": "string"
+        },
+        "deal_quality_num_iphone": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["1","2","4"]
+        },
+        "product_short_case": {
+          "type": "string"
+        },
+        "product_report_rating": {
+          "type": "string"
+        },
+        "category_v3_4_name": {
+          "type": "string"
+        },
+        "real_30day_sales_amount": {
+          "type": "string"
+        },
+        "sale_type": {
+          "type": "number"
+        },
+        "has_short_video": {
+          "type": "number"
+        },
+        "sellable": {
+          "type": "number"
+        },
+        "platform": {
+          "type": "string"
+        },
+        "stocks": {
+          "type": "number"
+        },
+        "discounted_price": {
+          "type": "string"
+        },
+        "shipping_system_id": {
+          "type": "string"
+        },
+        "category_id": {
+          "type": "string"
+        },
+        "product_medium_name": {
+          "type": "string"
+        },
+        "fake_total_sales_number": {
+          "type": "number"
+        },
+        "friendly_name": {
+          "type": "string"
+        },
+        "deal_quality_num_android": {
+          "type": "string"
+        },
+        "end_time": {
+          "type": "string"
+        },
+        "deal_sales_amount_android": {
+          "type": "string"
+        },
+        "value_of_goods": {
+          "type": "string"
+        },
+        "product_img": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "category_v3_2_name": {
+          "type": "string"
+        },
+        "real_wish_number": {
+          "type": "string"
+        },
+        "site": {
+          "type": "string"
+        },
+        "deal_exposure_iphone": {
+          "type": "string"
+        },
+        "dx_img": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "sku_list": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "sku_no": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "total_sales_number": {
+          "type": "string"
+        },
+        "is_exist_225": {
+          "type": "number"
+        },
+        "commission_rate": {
+          "type": "string"
+        },
+        "single_package_price": {
+          "type": "string"
+        },
+        "deal_uv_android": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "virtual_goods_id": {
+          "type": "string"
+        },
+        "is_deal_dx_enable": {
+          "type": "string"
+        },
+        "saved_amount": {
+          "type": "string"
+        },
+        "hash_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "status",
+        "hash_id"
+      ]
+    }
+  },
+  "required": []
+}

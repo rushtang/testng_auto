@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="model.tuanmei_operation.dao.jumei_deals_pluginMapper">
+  <resultMap id="BaseResultMap" type="model.tuanmei_operation.pojo.jumei_deals_plugin">
+    <constructor>
+      <idArg column="hash_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="site" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="is_published_price" javaType="java.lang.Boolean" jdbcType="BIT" />
+      <arg column="is_wish_to_buy" javaType="java.lang.Boolean" jdbcType="BIT" />
+      <arg column="is_published_show_stocks" javaType="java.lang.Boolean" jdbcType="BIT" />
+      <arg column="show_stocks" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="wish_title" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="wish_number" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="real_wish_number" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="is_stock_split" javaType="java.lang.Boolean" jdbcType="BIT" />
+      <arg column="using_title" javaType="java.lang.Boolean" jdbcType="BIT" />
+      <arg column="sort" javaType="java.lang.Integer" jdbcType="INTEGER" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    hash_id, site, is_published_price, is_wish_to_buy, is_published_show_stocks, show_stocks, 
+    wish_title, wish_number, real_wish_number, is_stock_split, using_title, sort
+  </sql>
+  <select id="selectByExample" parameterType="model.tuanmei_operation.pojo.jumei_deals_pluginExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from jumei_deals_plugin
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from jumei_deals_plugin
+    where hash_id = #{hashId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from jumei_deals_plugin
+    where hash_id = #{hashId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="model.tuanmei_operation.pojo.jumei_deals_pluginExample">
+    delete from jumei_deals_plugin
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="model.tuanmei_operation.pojo.jumei_deals_plugin">
+    insert into jumei_deals_plugin (hash_id, site, is_published_price, 
+      is_wish_to_buy, is_published_show_stocks, show_stocks, 
+      wish_title, wish_number, real_wish_number, 
+      is_stock_split, using_title, sort
+      )
+    values (#{hashId,jdbcType=VARCHAR}, #{site,jdbcType=VARCHAR}, #{isPublishedPrice,jdbcType=BIT}, 
+      #{isWishToBuy,jdbcType=BIT}, #{isPublishedShowStocks,jdbcType=BIT}, #{showStocks,jdbcType=INTEGER}, 
+      #{wishTitle,jdbcType=VARCHAR}, #{wishNumber,jdbcType=INTEGER}, #{realWishNumber,jdbcType=INTEGER}, 
+      #{isStockSplit,jdbcType=BIT}, #{usingTitle,jdbcType=BIT}, #{sort,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="model.tuanmei_operation.pojo.jumei_deals_plugin">
+    insert into jumei_deals_plugin
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="hashId != null">
+        hash_id,
+      </if>
+      <if test="site != null">
+        site,
+      </if>
+      <if test="isPublishedPrice != null">
+        is_published_price,
+      </if>
+      <if test="isWishToBuy != null">
+        is_wish_to_buy,
+      </if>
+      <if test="isPublishedShowStocks != null">
+        is_published_show_stocks,
+      </if>
+      <if test="showStocks != null">
+        show_stocks,
+      </if>
+      <if test="wishTitle != null">
+        wish_title,
+      </if>
+      <if test="wishNumber != null">
+        wish_number,
+      </if>
+      <if test="realWishNumber != null">
+        real_wish_number,
+      </if>
+      <if test="isStockSplit != null">
+        is_stock_split,
+      </if>
+      <if test="usingTitle != null">
+        using_title,
+      </if>
+      <if test="sort != null">
+        sort,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="hashId != null">
+        #{hashId,jdbcType=VARCHAR},
+      </if>
+      <if test="site != null">
+        #{site,jdbcType=VARCHAR},
+      </if>
+      <if test="isPublishedPrice != null">
+        #{isPublishedPrice,jdbcType=BIT},
+      </if>
+      <if test="isWishToBuy != null">
+        #{isWishToBuy,jdbcType=BIT},
+      </if>
+      <if test="isPublishedShowStocks != null">
+        #{isPublishedShowStocks,jdbcType=BIT},
+      </if>
+      <if test="showStocks != null">
+        #{showStocks,jdbcType=INTEGER},
+      </if>
+      <if test="wishTitle != null">
+        #{wishTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="wishNumber != null">
+        #{wishNumber,jdbcType=INTEGER},
+      </if>
+      <if test="realWishNumber != null">
+        #{realWishNumber,jdbcType=INTEGER},
+      </if>
+      <if test="isStockSplit != null">
+        #{isStockSplit,jdbcType=BIT},
+      </if>
+      <if test="usingTitle != null">
+        #{usingTitle,jdbcType=BIT},
+      </if>
+      <if test="sort != null">
+        #{sort,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="model.tuanmei_operation.pojo.jumei_deals_pluginExample" resultType="java.lang.Long">
+    select count(*) from jumei_deals_plugin
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update jumei_deals_plugin
+    <set>
+      <if test="record.hashId != null">
+        hash_id = #{record.hashId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.site != null">
+        site = #{record.site,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isPublishedPrice != null">
+        is_published_price = #{record.isPublishedPrice,jdbcType=BIT},
+      </if>
+      <if test="record.isWishToBuy != null">
+        is_wish_to_buy = #{record.isWishToBuy,jdbcType=BIT},
+      </if>
+      <if test="record.isPublishedShowStocks != null">
+        is_published_show_stocks = #{record.isPublishedShowStocks,jdbcType=BIT},
+      </if>
+      <if test="record.showStocks != null">
+        show_stocks = #{record.showStocks,jdbcType=INTEGER},
+      </if>
+      <if test="record.wishTitle != null">
+        wish_title = #{record.wishTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.wishNumber != null">
+        wish_number = #{record.wishNumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.realWishNumber != null">
+        real_wish_number = #{record.realWishNumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.isStockSplit != null">
+        is_stock_split = #{record.isStockSplit,jdbcType=BIT},
+      </if>
+      <if test="record.usingTitle != null">
+        using_title = #{record.usingTitle,jdbcType=BIT},
+      </if>
+      <if test="record.sort != null">
+        sort = #{record.sort,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update jumei_deals_plugin
+    set hash_id = #{record.hashId,jdbcType=VARCHAR},
+      site = #{record.site,jdbcType=VARCHAR},
+      is_published_price = #{record.isPublishedPrice,jdbcType=BIT},
+      is_wish_to_buy = #{record.isWishToBuy,jdbcType=BIT},
+      is_published_show_stocks = #{record.isPublishedShowStocks,jdbcType=BIT},
+      show_stocks = #{record.showStocks,jdbcType=INTEGER},
+      wish_title = #{record.wishTitle,jdbcType=VARCHAR},
+      wish_number = #{record.wishNumber,jdbcType=INTEGER},
+      real_wish_number = #{record.realWishNumber,jdbcType=INTEGER},
+      is_stock_split = #{record.isStockSplit,jdbcType=BIT},
+      using_title = #{record.usingTitle,jdbcType=BIT},
+      sort = #{record.sort,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="model.tuanmei_operation.pojo.jumei_deals_plugin">
+    update jumei_deals_plugin
+    <set>
+      <if test="site != null">
+        site = #{site,jdbcType=VARCHAR},
+      </if>
+      <if test="isPublishedPrice != null">
+        is_published_price = #{isPublishedPrice,jdbcType=BIT},
+      </if>
+      <if test="isWishToBuy != null">
+        is_wish_to_buy = #{isWishToBuy,jdbcType=BIT},
+      </if>
+      <if test="isPublishedShowStocks != null">
+        is_published_show_stocks = #{isPublishedShowStocks,jdbcType=BIT},
+      </if>
+      <if test="showStocks != null">
+        show_stocks = #{showStocks,jdbcType=INTEGER},
+      </if>
+      <if test="wishTitle != null">
+        wish_title = #{wishTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="wishNumber != null">
+        wish_number = #{wishNumber,jdbcType=INTEGER},
+      </if>
+      <if test="realWishNumber != null">
+        real_wish_number = #{realWishNumber,jdbcType=INTEGER},
+      </if>
+      <if test="isStockSplit != null">
+        is_stock_split = #{isStockSplit,jdbcType=BIT},
+      </if>
+      <if test="usingTitle != null">
+        using_title = #{usingTitle,jdbcType=BIT},
+      </if>
+      <if test="sort != null">
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+    </set>
+    where hash_id = #{hashId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="model.tuanmei_operation.pojo.jumei_deals_plugin">
+    update jumei_deals_plugin
+    set site = #{site,jdbcType=VARCHAR},
+      is_published_price = #{isPublishedPrice,jdbcType=BIT},
+      is_wish_to_buy = #{isWishToBuy,jdbcType=BIT},
+      is_published_show_stocks = #{isPublishedShowStocks,jdbcType=BIT},
+      show_stocks = #{showStocks,jdbcType=INTEGER},
+      wish_title = #{wishTitle,jdbcType=VARCHAR},
+      wish_number = #{wishNumber,jdbcType=INTEGER},
+      real_wish_number = #{realWishNumber,jdbcType=INTEGER},
+      is_stock_split = #{isStockSplit,jdbcType=BIT},
+      using_title = #{usingTitle,jdbcType=BIT},
+      sort = #{sort,jdbcType=INTEGER}
+    where hash_id = #{hashId,jdbcType=VARCHAR}
+  </update>
+  <select id="selectOneByExample" parameterType="model.tuanmei_operation.pojo.jumei_deals_pluginExample" resultMap="BaseResultMap">
+    <!--
+      WARNING - @mbg.generated
+      This element is automatically generated by MyBatis Generator, do not modify.
+      @project https://github.com/itfsw/mybatis-generator-plugin
+    -->
+    select
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from jumei_deals_plugin
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    limit 1
+  </select>
+</mapper>

@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="model.jumei_product.dao.jumei_tagMapper">
+  <resultMap id="BaseResultMap" type="model.jumei_product.pojo.jumei_tag">
+    <constructor>
+      <idArg column="tag_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="tag_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="tag_status" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="tag_description" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="last_update_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="last_update_user" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="tag_sale_img" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="tag_use_type" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    tag_id, tag_name, tag_status, tag_description, last_update_time, last_update_user, 
+    tag_sale_img, tag_use_type
+  </sql>
+  <select id="selectByExample" parameterType="model.jumei_product.pojo.jumei_tagExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from jumei_tag
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from jumei_tag
+    where tag_id = #{tagId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from jumei_tag
+    where tag_id = #{tagId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="model.jumei_product.pojo.jumei_tagExample">
+    delete from jumei_tag
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="model.jumei_product.pojo.jumei_tag">
+    insert into jumei_tag (tag_id, tag_name, tag_status, 
+      tag_description, last_update_time, last_update_user, 
+      tag_sale_img, tag_use_type)
+    values (#{tagId,jdbcType=INTEGER}, #{tagName,jdbcType=VARCHAR}, #{tagStatus,jdbcType=TINYINT}, 
+      #{tagDescription,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=TIMESTAMP}, #{lastUpdateUser,jdbcType=VARCHAR}, 
+      #{tagSaleImg,jdbcType=VARCHAR}, #{tagUseType,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="model.jumei_product.pojo.jumei_tag">
+    insert into jumei_tag
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tagId != null">
+        tag_id,
+      </if>
+      <if test="tagName != null">
+        tag_name,
+      </if>
+      <if test="tagStatus != null">
+        tag_status,
+      </if>
+      <if test="tagDescription != null">
+        tag_description,
+      </if>
+      <if test="lastUpdateTime != null">
+        last_update_time,
+      </if>
+      <if test="lastUpdateUser != null">
+        last_update_user,
+      </if>
+      <if test="tagSaleImg != null">
+        tag_sale_img,
+      </if>
+      <if test="tagUseType != null">
+        tag_use_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tagId != null">
+        #{tagId,jdbcType=INTEGER},
+      </if>
+      <if test="tagName != null">
+        #{tagName,jdbcType=VARCHAR},
+      </if>
+      <if test="tagStatus != null">
+        #{tagStatus,jdbcType=TINYINT},
+      </if>
+      <if test="tagDescription != null">
+        #{tagDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdateUser != null">
+        #{lastUpdateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="tagSaleImg != null">
+        #{tagSaleImg,jdbcType=VARCHAR},
+      </if>
+      <if test="tagUseType != null">
+        #{tagUseType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="model.jumei_product.pojo.jumei_tagExample" resultType="java.lang.Long">
+    select count(*) from jumei_tag
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update jumei_tag
+    <set>
+      <if test="record.tagId != null">
+        tag_id = #{record.tagId,jdbcType=INTEGER},
+      </if>
+      <if test="record.tagName != null">
+        tag_name = #{record.tagName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tagStatus != null">
+        tag_status = #{record.tagStatus,jdbcType=TINYINT},
+      </if>
+      <if test="record.tagDescription != null">
+        tag_description = #{record.tagDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lastUpdateTime != null">
+        last_update_time = #{record.lastUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.lastUpdateUser != null">
+        last_update_user = #{record.lastUpdateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tagSaleImg != null">
+        tag_sale_img = #{record.tagSaleImg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tagUseType != null">
+        tag_use_type = #{record.tagUseType,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update jumei_tag
+    set tag_id = #{record.tagId,jdbcType=INTEGER},
+      tag_name = #{record.tagName,jdbcType=VARCHAR},
+      tag_status = #{record.tagStatus,jdbcType=TINYINT},
+      tag_description = #{record.tagDescription,jdbcType=VARCHAR},
+      last_update_time = #{record.lastUpdateTime,jdbcType=TIMESTAMP},
+      last_update_user = #{record.lastUpdateUser,jdbcType=VARCHAR},
+      tag_sale_img = #{record.tagSaleImg,jdbcType=VARCHAR},
+      tag_use_type = #{record.tagUseType,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="model.jumei_product.pojo.jumei_tag">
+    update jumei_tag
+    <set>
+      <if test="tagName != null">
+        tag_name = #{tagName,jdbcType=VARCHAR},
+      </if>
+      <if test="tagStatus != null">
+        tag_status = #{tagStatus,jdbcType=TINYINT},
+      </if>
+      <if test="tagDescription != null">
+        tag_description = #{tagDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        last_update_time = #{lastUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdateUser != null">
+        last_update_user = #{lastUpdateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="tagSaleImg != null">
+        tag_sale_img = #{tagSaleImg,jdbcType=VARCHAR},
+      </if>
+      <if test="tagUseType != null">
+        tag_use_type = #{tagUseType,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where tag_id = #{tagId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="model.jumei_product.pojo.jumei_tag">
+    update jumei_tag
+    set tag_name = #{tagName,jdbcType=VARCHAR},
+      tag_status = #{tagStatus,jdbcType=TINYINT},
+      tag_description = #{tagDescription,jdbcType=VARCHAR},
+      last_update_time = #{lastUpdateTime,jdbcType=TIMESTAMP},
+      last_update_user = #{lastUpdateUser,jdbcType=VARCHAR},
+      tag_sale_img = #{tagSaleImg,jdbcType=VARCHAR},
+      tag_use_type = #{tagUseType,jdbcType=VARCHAR}
+    where tag_id = #{tagId,jdbcType=INTEGER}
+  </update>
+  <select id="selectOneByExample" parameterType="model.jumei_product.pojo.jumei_tagExample" resultMap="BaseResultMap">
+    <!--
+      WARNING - @mbg.generated
+      This element is automatically generated by MyBatis Generator, do not modify.
+      @project https://github.com/itfsw/mybatis-generator-plugin
+    -->
+    select
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from jumei_tag
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    limit 1
+  </select>
+</mapper>

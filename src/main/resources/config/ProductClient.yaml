@@ -1,0 +1,5 @@
+ip: "192.168.17.47"
+port: 2005
+rpc_secret_key: 769af463a39f077a0340a189e9c1ec28
+secret: ""
+user: ""

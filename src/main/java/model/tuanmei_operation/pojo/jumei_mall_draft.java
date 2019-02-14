@@ -1,0 +1,463 @@
+package model.tuanmei_operation.pojo;
+
+import java.math.BigDecimal;
+
+public class jumei_mall_draft {
+    private Integer mallId;
+
+    private Integer productId;
+
+    private Integer saleTypeId;
+
+    private Integer shippingSystemId;
+
+    private Boolean status;
+
+    private BigDecimal skuMinPrice;
+
+    private BigDecimal skuMaxPrice;
+
+    private BigDecimal minDiscount;
+
+    private BigDecimal skuMaxMarketPrice;
+
+    private String productShortName;
+
+    private String productMediumName;
+
+    private String productLongName;
+
+    private Integer updateTime;
+
+    private String updateUser;
+
+    private String category;
+
+    private Integer merchantId;
+
+    public jumei_mall_draft(Integer mallId, Integer productId, Integer saleTypeId, Integer shippingSystemId, Boolean status, BigDecimal skuMinPrice, BigDecimal skuMaxPrice, BigDecimal minDiscount, BigDecimal skuMaxMarketPrice, String productShortName, String productMediumName, String productLongName, Integer updateTime, String updateUser, String category, Integer merchantId) {
+        this.mallId = mallId;
+        this.productId = productId;
+        this.saleTypeId = saleTypeId;
+        this.shippingSystemId = shippingSystemId;
+        this.status = status;
+        this.skuMinPrice = skuMinPrice;
+        this.skuMaxPrice = skuMaxPrice;
+        this.minDiscount = minDiscount;
+        this.skuMaxMarketPrice = skuMaxMarketPrice;
+        this.productShortName = productShortName;
+        this.productMediumName = productMediumName;
+        this.productLongName = productLongName;
+        this.updateTime = updateTime;
+        this.updateUser = updateUser;
+        this.category = category;
+        this.merchantId = merchantId;
+    }
+
+    public jumei_mall_draft() {
+        super();
+    }
+
+    public Integer getMallId() {
+        return mallId;
+    }
+
+    public void setMallId(Integer mallId) {
+        this.mallId = mallId;
+    }
+
+    public Integer getProductId() {
+        return productId;
+    }
+
+    public void setProductId(Integer productId) {
+        this.productId = productId;
+    }
+
+    public Integer getSaleTypeId() {
+        return saleTypeId;
+    }
+
+    public void setSaleTypeId(Integer saleTypeId) {
+        this.saleTypeId = saleTypeId;
+    }
+
+    public Integer getShippingSystemId() {
+        return shippingSystemId;
+    }
+
+    public void setShippingSystemId(Integer shippingSystemId) {
+        this.shippingSystemId = shippingSystemId;
+    }
+
+    public Boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
+    }
+
+    public BigDecimal getSkuMinPrice() {
+        return skuMinPrice;
+    }
+
+    public void setSkuMinPrice(BigDecimal skuMinPrice) {
+        this.skuMinPrice = skuMinPrice;
+    }
+
+    public BigDecimal getSkuMaxPrice() {
+        return skuMaxPrice;
+    }
+
+    public void setSkuMaxPrice(BigDecimal skuMaxPrice) {
+        this.skuMaxPrice = skuMaxPrice;
+    }
+
+    public BigDecimal getMinDiscount() {
+        return minDiscount;
+    }
+
+    public void setMinDiscount(BigDecimal minDiscount) {
+        this.minDiscount = minDiscount;
+    }
+
+    public BigDecimal getSkuMaxMarketPrice() {
+        return skuMaxMarketPrice;
+    }
+
+    public void setSkuMaxMarketPrice(BigDecimal skuMaxMarketPrice) {
+        this.skuMaxMarketPrice = skuMaxMarketPrice;
+    }
+
+    public String getProductShortName() {
+        return productShortName;
+    }
+
+    public void setProductShortName(String productShortName) {
+        this.productShortName = productShortName == null ? null : productShortName.trim();
+    }
+
+    public String getProductMediumName() {
+        return productMediumName;
+    }
+
+    public void setProductMediumName(String productMediumName) {
+        this.productMediumName = productMediumName == null ? null : productMediumName.trim();
+    }
+
+    public String getProductLongName() {
+        return productLongName;
+    }
+
+    public void setProductLongName(String productLongName) {
+        this.productLongName = productLongName == null ? null : productLongName.trim();
+    }
+
+    public Integer getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Integer updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    public String getUpdateUser() {
+        return updateUser;
+    }
+
+    public void setUpdateUser(String updateUser) {
+        this.updateUser = updateUser == null ? null : updateUser.trim();
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category == null ? null : category.trim();
+    }
+
+    public Integer getMerchantId() {
+        return merchantId;
+    }
+
+    public void setMerchantId(Integer merchantId) {
+        this.merchantId = merchantId;
+    }
+
+    /**
+     * This method was generated by MyBatis Generator.
+     * This method corresponds to the database table jumei_mall_draft
+     *
+     * @mbg.generated
+     * @project https://github.com/itfsw/mybatis-generator-plugin
+     */
+    public static jumei_mall_draft.Builder builder() {
+        return new jumei_mall_draft.Builder();
+    }
+
+    /**
+     * This class was generated by MyBatis Generator.
+     * This class corresponds to the database table jumei_mall_draft
+     *
+     * @mbg.generated
+     * @project https://github.com/itfsw/mybatis-generator-plugin
+     */
+    public static class Builder {
+        /**
+         * This field was generated by MyBatis Generator.
+         * This field corresponds to the database table jumei_mall_draft
+         *
+         * @mbg.generated
+         * @project https://github.com/itfsw/mybatis-generator-plugin
+         */
+        private jumei_mall_draft obj;
+
+        /**
+         * This method was generated by MyBatis Generator.
+         * This method corresponds to the database table jumei_mall_draft
+         *
+         * @mbg.generated
+         * @project https://github.com/itfsw/mybatis-generator-plugin
+         */
+        public Builder() {
+            this.obj = new jumei_mall_draft();
+        }
+
+        /**
+         * This method was generated by MyBatis Generator.
+         * This method sets the value of the database column jumei_mall_draft.mall_id
+         *
+         * @param mallId the value for jumei_mall_draft.mall_id
+         *
+         * @mbg.generated
+         * @project https://github.com/itfsw/mybatis-generator-plugin
+         */
+        public Builder mallId(Integer mallId) {
+            obj.setMallId(mallId);
+            return this;
+        }
+
+        /**
+         * This method was generated by MyBatis Generator.
+         * This method sets the value of the database column jumei_mall_draft.product_id
+         *
+         * @param productId the value for jumei_mall_draft.product_id
+         *
+         * @mbg.generated
+         * @project https://github.com/itfsw/mybatis-generator-plugin
+         */
+        public Builder productId(Integer productId) {
+            obj.setProductId(productId);
+            return this;
+        }
+
+        /**
+         * This method was generated by MyBatis Generator.
+         * This method sets the value of the database column jumei_mall_draft.sale_type_id
+         *
+         * @param saleTypeId the value for jumei_mall_draft.sale_type_id
+         *
+         * @mbg.generated
+         * @project https://github.com/itfsw/mybatis-generator-plugin
+         */
+        public Builder saleTypeId(Integer saleTypeId) {
+            obj.setSaleTypeId(saleTypeId);
+            return this;
+        }
+
+        /**
+         * This method was generated by MyBatis Generator.
+         * This method sets the value of the database column jumei_mall_draft.shipping_system_id
+         *
+         * @param shippingSystemId the value for jumei_mall_draft.shipping_system_id
+         *
+         * @mbg.generated
+         * @project https://github.com/itfsw/mybatis-generator-plugin
+         */
+        public Builder shippingSystemId(Integer shippingSystemId) {
+            obj.setShippingSystemId(shippingSystemId);
+            return this;
+        }
+
+        /**
+         * This method was generated by MyBatis Generator.
+         * This method sets the value of the database column jumei_mall_draft.status
+         *
+         * @param status the value for jumei_mall_draft.status
+         *
+         * @mbg.generated
+         * @project https://github.com/itfsw/mybatis-generator-plugin
+         */
+        public Builder status(Boolean status) {
+            obj.setStatus(status);
+            return this;
+        }
+
+        /**
+         * This method was generated by MyBatis Generator.
+         * This method sets the value of the database column jumei_mall_draft.sku_min_price
+         *
+         * @param skuMinPrice the value for jumei_mall_draft.sku_min_price
+         *
+         * @mbg.generated
+         * @project https://github.com/itfsw/mybatis-generator-plugin
+         */
+        public Builder skuMinPrice(BigDecimal skuMinPrice) {
+            obj.setSkuMinPrice(skuMinPrice);
+            return this;
+        }
+
+        /**
+         * This method was generated by MyBatis Generator.
+         * This method sets the value of the database column jumei_mall_draft.sku_max_price
+         *
+         * @param skuMaxPrice the value for jumei_mall_draft.sku_max_price
+         *
+         * @mbg.generated
+         * @project https://github.com/itfsw/mybatis-generator-plugin
+         */
+        public Builder skuMaxPrice(BigDecimal skuMaxPrice) {
+            obj.setSkuMaxPrice(skuMaxPrice);
+            return this;
+        }
+
+        /**
+         * This method was generated by MyBatis Generator.
+         * This method sets the value of the database column jumei_mall_draft.min_discount
+         *
+         * @param minDiscount the value for jumei_mall_draft.min_discount
+         *
+         * @mbg.generated
+         * @project https://github.com/itfsw/mybatis-generator-plugin
+         */
+        public Builder minDiscount(BigDecimal minDiscount) {
+            obj.setMinDiscount(minDiscount);
+            return this;
+        }
+
+        /**
+         * This method was generated by MyBatis Generator.
+         * This method sets the value of the database column jumei_mall_draft.sku_max_market_price
+         *
+         * @param skuMaxMarketPrice the value for jumei_mall_draft.sku_max_market_price
+         *
+         * @mbg.generated
+         * @project https://github.com/itfsw/mybatis-generator-plugin
+         */
+        public Builder skuMaxMarketPrice(BigDecimal skuMaxMarketPrice) {
+            obj.setSkuMaxMarketPrice(skuMaxMarketPrice);
+            return this;
+        }
+
+        /**
+         * This method was generated by MyBatis Generator.
+         * This method sets the value of the database column jumei_mall_draft.product_short_name
+         *
+         * @param productShortName the value for jumei_mall_draft.product_short_name
+         *
+         * @mbg.generated
+         * @project https://github.com/itfsw/mybatis-generator-plugin
+         */
+        public Builder productShortName(String productShortName) {
+            obj.setProductShortName(productShortName);
+            return this;
+        }
+
+        /**
+         * This method was generated by MyBatis Generator.
+         * This method sets the value of the database column jumei_mall_draft.product_medium_name
+         *
+         * @param productMediumName the value for jumei_mall_draft.product_medium_name
+         *
+         * @mbg.generated
+         * @project https://github.com/itfsw/mybatis-generator-plugin
+         */
+        public Builder productMediumName(String productMediumName) {
+            obj.setProductMediumName(productMediumName);
+            return this;
+        }
+
+        /**
+         * This method was generated by MyBatis Generator.
+         * This method sets the value of the database column jumei_mall_draft.product_long_name
+         *
+         * @param productLongName the value for jumei_mall_draft.product_long_name
+         *
+         * @mbg.generated
+         * @project https://github.com/itfsw/mybatis-generator-plugin
+         */
+        public Builder productLongName(String productLongName) {
+            obj.setProductLongName(productLongName);
+            return this;
+        }
+
+        /**
+         * This method was generated by MyBatis Generator.
+         * This method sets the value of the database column jumei_mall_draft.update_time
+         *
+         * @param updateTime the value for jumei_mall_draft.update_time
+         *
+         * @mbg.generated
+         * @project https://github.com/itfsw/mybatis-generator-plugin
+         */
+        public Builder updateTime(Integer updateTime) {
+            obj.setUpdateTime(updateTime);
+            return this;
+        }
+
+        /**
+         * This method was generated by MyBatis Generator.
+         * This method sets the value of the database column jumei_mall_draft.update_user
+         *
+         * @param updateUser the value for jumei_mall_draft.update_user
+         *
+         * @mbg.generated
+         * @project https://github.com/itfsw/mybatis-generator-plugin
+         */
+        public Builder updateUser(String updateUser) {
+            obj.setUpdateUser(updateUser);
+            return this;
+        }
+
+        /**
+         * This method was generated by MyBatis Generator.
+         * This method sets the value of the database column jumei_mall_draft.category
+         *
+         * @param category the value for jumei_mall_draft.category
+         *
+         * @mbg.generated
+         * @project https://github.com/itfsw/mybatis-generator-plugin
+         */
+        public Builder category(String category) {
+            obj.setCategory(category);
+            return this;
+        }
+
+        /**
+         * This method was generated by MyBatis Generator.
+         * This method sets the value of the database column jumei_mall_draft.merchant_id
+         *
+         * @param merchantId the value for jumei_mall_draft.merchant_id
+         *
+         * @mbg.generated
+         * @project https://github.com/itfsw/mybatis-generator-plugin
+         */
+        public Builder merchantId(Integer merchantId) {
+            obj.setMerchantId(merchantId);
+            return this;
+        }
+
+        /**
+         * This method was generated by MyBatis Generator.
+         * This method corresponds to the database table jumei_mall_draft
+         *
+         * @mbg.generated
+         * @project https://github.com/itfsw/mybatis-generator-plugin
+         */
+        public jumei_mall_draft build() {
+            return this.obj;
+        }
+    }
+}

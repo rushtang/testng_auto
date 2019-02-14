@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="model.tuanmei_operation.dao.jumei_mall_draftMapper">
+  <resultMap id="BaseResultMap" type="model.tuanmei_operation.pojo.jumei_mall_draft">
+    <constructor>
+      <idArg column="mall_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="product_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="sale_type_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="shipping_system_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="status" javaType="java.lang.Boolean" jdbcType="BIT" />
+      <arg column="sku_min_price" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="sku_max_price" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="min_discount" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="sku_max_market_price" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="product_short_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="product_medium_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="product_long_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="update_time" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="update_user" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="category" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="merchant_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    mall_id, product_id, sale_type_id, shipping_system_id, status, sku_min_price, sku_max_price, 
+    min_discount, sku_max_market_price, product_short_name, product_medium_name, product_long_name, 
+    update_time, update_user, category, merchant_id
+  </sql>
+  <select id="selectByExample" parameterType="model.tuanmei_operation.pojo.jumei_mall_draftExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from jumei_mall_draft
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from jumei_mall_draft
+    where mall_id = #{mallId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from jumei_mall_draft
+    where mall_id = #{mallId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="model.tuanmei_operation.pojo.jumei_mall_draftExample">
+    delete from jumei_mall_draft
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="model.tuanmei_operation.pojo.jumei_mall_draft">
+    insert into jumei_mall_draft (mall_id, product_id, sale_type_id, 
+      shipping_system_id, status, sku_min_price, 
+      sku_max_price, min_discount, sku_max_market_price, 
+      product_short_name, product_medium_name, product_long_name, 
+      update_time, update_user, category, 
+      merchant_id)
+    values (#{mallId,jdbcType=INTEGER}, #{productId,jdbcType=INTEGER}, #{saleTypeId,jdbcType=INTEGER}, 
+      #{shippingSystemId,jdbcType=INTEGER}, #{status,jdbcType=BIT}, #{skuMinPrice,jdbcType=DECIMAL}, 
+      #{skuMaxPrice,jdbcType=DECIMAL}, #{minDiscount,jdbcType=DECIMAL}, #{skuMaxMarketPrice,jdbcType=DECIMAL}, 
+      #{productShortName,jdbcType=VARCHAR}, #{productMediumName,jdbcType=VARCHAR}, #{productLongName,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=INTEGER}, #{updateUser,jdbcType=VARCHAR}, #{category,jdbcType=VARCHAR}, 
+      #{merchantId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="model.tuanmei_operation.pojo.jumei_mall_draft">
+    insert into jumei_mall_draft
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="mallId != null">
+        mall_id,
+      </if>
+      <if test="productId != null">
+        product_id,
+      </if>
+      <if test="saleTypeId != null">
+        sale_type_id,
+      </if>
+      <if test="shippingSystemId != null">
+        shipping_system_id,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="skuMinPrice != null">
+        sku_min_price,
+      </if>
+      <if test="skuMaxPrice != null">
+        sku_max_price,
+      </if>
+      <if test="minDiscount != null">
+        min_discount,
+      </if>
+      <if test="skuMaxMarketPrice != null">
+        sku_max_market_price,
+      </if>
+      <if test="productShortName != null">
+        product_short_name,
+      </if>
+      <if test="productMediumName != null">
+        product_medium_name,
+      </if>
+      <if test="productLongName != null">
+        product_long_name,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="updateUser != null">
+        update_user,
+      </if>
+      <if test="category != null">
+        category,
+      </if>
+      <if test="merchantId != null">
+        merchant_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="mallId != null">
+        #{mallId,jdbcType=INTEGER},
+      </if>
+      <if test="productId != null">
+        #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="saleTypeId != null">
+        #{saleTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="shippingSystemId != null">
+        #{shippingSystemId,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=BIT},
+      </if>
+      <if test="skuMinPrice != null">
+        #{skuMinPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="skuMaxPrice != null">
+        #{skuMaxPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="minDiscount != null">
+        #{minDiscount,jdbcType=DECIMAL},
+      </if>
+      <if test="skuMaxMarketPrice != null">
+        #{skuMaxMarketPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="productShortName != null">
+        #{productShortName,jdbcType=VARCHAR},
+      </if>
+      <if test="productMediumName != null">
+        #{productMediumName,jdbcType=VARCHAR},
+      </if>
+      <if test="productLongName != null">
+        #{productLongName,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=INTEGER},
+      </if>
+      <if test="updateUser != null">
+        #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="category != null">
+        #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantId != null">
+        #{merchantId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="model.tuanmei_operation.pojo.jumei_mall_draftExample" resultType="java.lang.Long">
+    select count(*) from jumei_mall_draft
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update jumei_mall_draft
+    <set>
+      <if test="record.mallId != null">
+        mall_id = #{record.mallId,jdbcType=INTEGER},
+      </if>
+      <if test="record.productId != null">
+        product_id = #{record.productId,jdbcType=INTEGER},
+      </if>
+      <if test="record.saleTypeId != null">
+        sale_type_id = #{record.saleTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.shippingSystemId != null">
+        shipping_system_id = #{record.shippingSystemId,jdbcType=INTEGER},
+      </if>
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=BIT},
+      </if>
+      <if test="record.skuMinPrice != null">
+        sku_min_price = #{record.skuMinPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.skuMaxPrice != null">
+        sku_max_price = #{record.skuMaxPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.minDiscount != null">
+        min_discount = #{record.minDiscount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.skuMaxMarketPrice != null">
+        sku_max_market_price = #{record.skuMaxMarketPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.productShortName != null">
+        product_short_name = #{record.productShortName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.productMediumName != null">
+        product_medium_name = #{record.productMediumName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.productLongName != null">
+        product_long_name = #{record.productLongName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updateTime != null">
+        update_time = #{record.updateTime,jdbcType=INTEGER},
+      </if>
+      <if test="record.updateUser != null">
+        update_user = #{record.updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.category != null">
+        category = #{record.category,jdbcType=VARCHAR},
+      </if>
+      <if test="record.merchantId != null">
+        merchant_id = #{record.merchantId,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update jumei_mall_draft
+    set mall_id = #{record.mallId,jdbcType=INTEGER},
+      product_id = #{record.productId,jdbcType=INTEGER},
+      sale_type_id = #{record.saleTypeId,jdbcType=INTEGER},
+      shipping_system_id = #{record.shippingSystemId,jdbcType=INTEGER},
+      status = #{record.status,jdbcType=BIT},
+      sku_min_price = #{record.skuMinPrice,jdbcType=DECIMAL},
+      sku_max_price = #{record.skuMaxPrice,jdbcType=DECIMAL},
+      min_discount = #{record.minDiscount,jdbcType=DECIMAL},
+      sku_max_market_price = #{record.skuMaxMarketPrice,jdbcType=DECIMAL},
+      product_short_name = #{record.productShortName,jdbcType=VARCHAR},
+      product_medium_name = #{record.productMediumName,jdbcType=VARCHAR},
+      product_long_name = #{record.productLongName,jdbcType=VARCHAR},
+      update_time = #{record.updateTime,jdbcType=INTEGER},
+      update_user = #{record.updateUser,jdbcType=VARCHAR},
+      category = #{record.category,jdbcType=VARCHAR},
+      merchant_id = #{record.merchantId,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="model.tuanmei_operation.pojo.jumei_mall_draft">
+    update jumei_mall_draft
+    <set>
+      <if test="productId != null">
+        product_id = #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="saleTypeId != null">
+        sale_type_id = #{saleTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="shippingSystemId != null">
+        shipping_system_id = #{shippingSystemId,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=BIT},
+      </if>
+      <if test="skuMinPrice != null">
+        sku_min_price = #{skuMinPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="skuMaxPrice != null">
+        sku_max_price = #{skuMaxPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="minDiscount != null">
+        min_discount = #{minDiscount,jdbcType=DECIMAL},
+      </if>
+      <if test="skuMaxMarketPrice != null">
+        sku_max_market_price = #{skuMaxMarketPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="productShortName != null">
+        product_short_name = #{productShortName,jdbcType=VARCHAR},
+      </if>
+      <if test="productMediumName != null">
+        product_medium_name = #{productMediumName,jdbcType=VARCHAR},
+      </if>
+      <if test="productLongName != null">
+        product_long_name = #{productLongName,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=INTEGER},
+      </if>
+      <if test="updateUser != null">
+        update_user = #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="category != null">
+        category = #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantId != null">
+        merchant_id = #{merchantId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where mall_id = #{mallId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="model.tuanmei_operation.pojo.jumei_mall_draft">
+    update jumei_mall_draft
+    set product_id = #{productId,jdbcType=INTEGER},
+      sale_type_id = #{saleTypeId,jdbcType=INTEGER},
+      shipping_system_id = #{shippingSystemId,jdbcType=INTEGER},
+      status = #{status,jdbcType=BIT},
+      sku_min_price = #{skuMinPrice,jdbcType=DECIMAL},
+      sku_max_price = #{skuMaxPrice,jdbcType=DECIMAL},
+      min_discount = #{minDiscount,jdbcType=DECIMAL},
+      sku_max_market_price = #{skuMaxMarketPrice,jdbcType=DECIMAL},
+      product_short_name = #{productShortName,jdbcType=VARCHAR},
+      product_medium_name = #{productMediumName,jdbcType=VARCHAR},
+      product_long_name = #{productLongName,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=INTEGER},
+      update_user = #{updateUser,jdbcType=VARCHAR},
+      category = #{category,jdbcType=VARCHAR},
+      merchant_id = #{merchantId,jdbcType=INTEGER}
+    where mall_id = #{mallId,jdbcType=INTEGER}
+  </update>
+  <select id="selectOneByExample" parameterType="model.tuanmei_operation.pojo.jumei_mall_draftExample" resultMap="BaseResultMap">
+    <!--
+      WARNING - @mbg.generated
+      This element is automatically generated by MyBatis Generator, do not modify.
+      @project https://github.com/itfsw/mybatis-generator-plugin
+    -->
+    select
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from jumei_mall_draft
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    limit 1
+  </select>
+</mapper>

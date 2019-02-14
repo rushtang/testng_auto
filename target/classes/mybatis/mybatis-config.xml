@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="mybatis/datasource.properties"></properties>
+    <environments default="rd_jumei_product">
+        <environment id="rd_jumei_product">
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="POOLED">
+                <property name="driver" value="${db.driverClassName}"></property>
+                <property name="url" value="${db.url1}"></property>
+                <property name="username" value="${db.username}"></property>
+                <property name="password" value="${db.password}"></property>
+            </dataSource>
+        </environment>
+        <environment id="rd_tuanmei_operation">
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="POOLED">
+                <property name="driver" value="${db.driverClassName}"></property>
+                <property name="url" value="${db.url2}"></property>
+                <property name="username" value="${db.username}"></property>
+                <property name="password" value="${db.password}"></property>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!--加载映射文件-->
+    <mappers>
+        <!--jumei_product数据库的-->
+        <mapper resource="mybatis/mappers/jumei_product/jumei_mallMapper.xml"></mapper>
+        <mapper resource="mybatis/mappers/jumei_product/jumei_tagMapper.xml"></mapper>
+        <mapper resource="mybatis/mappers/jumei_product/tuanmei_dealsMapper.xml"></mapper>
+        <mapper resource="mybatis/mappers/jumei_product/tuanmei_product_inventoryMapper.xml"></mapper>
+
+
+        <!--tuanmei_operation数据库的-->
+        <mapper resource="mybatis/mappers/tuanmei_operation/jumei_deals_pluginMapper.xml"></mapper>
+        <mapper resource="mybatis/mappers/tuanmei_operation/jumei_mall_draftMapper.xml"></mapper>
+        <mapper resource="mybatis/mappers/tuanmei_operation/tuanmei_deal_draftsMapper.xml"></mapper>
+
+
+    </mappers>
+
+</configuration>

@@ -1,0 +1,1569 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="model.tuanmei_operation.dao.tuanmei_deal_draftsMapper">
+  <resultMap id="BaseResultMap" type="model.tuanmei_operation.pojo.tuanmei_deal_drafts">
+    <constructor>
+      <idArg column="hash_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="deal_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="original_price" javaType="java.lang.Double" jdbcType="DOUBLE" />
+      <arg column="discounted_price" javaType="java.lang.Double" jdbcType="DOUBLE" />
+      <arg column="discount" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="buyer_number" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="purchase_lower_limit" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="purchase_upper_limit" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="start_time" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="end_time" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="status" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="tipped_time" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="stocks" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="short_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="attributes" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="delivery_fee" javaType="java.lang.Double" jdbcType="DOUBLE" />
+      <arg column="category" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="show_category" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="deal_group_label" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="site" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="real_buyer_number" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="sku_no" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="meta_keywords" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="draft_create_time" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="draft_create_username" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="draft_update_time" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="draft_update_username" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="draft_content_top_ad_image" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="draft_content_top_ad_url" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="product_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="brand_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="brand_label" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="redeem_lowest_total_price" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="user_purchase_limit" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="second_kill_time" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="medium_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="is_b2c_deal" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="related_deal_group_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="editor_username" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="shipping_system_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="shipping_system_type" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="special_deal_group_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="is_shown_in_home" javaType="java.lang.Boolean" jdbcType="BIT" />
+      <arg column="update_editor" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="refund_policy" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="sale_type" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="need_sync" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="ending_buyer_number" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="ad_copy" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="gold_member_price" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="platinum_member_price" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="diamond_member_price" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="company" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="dx_tag" javaType="java.lang.Boolean" jdbcType="BIT" />
+      <arg column="focus_title" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="focus_img_count" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="focus_bg_color" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="platform" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="sale_short_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="max_discounted_price" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+    </constructor>
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="model.tuanmei_operation.pojo.tuanmei_deal_draftsWithBLOBs">
+    <constructor>
+      <idArg column="hash_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="deal_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="original_price" javaType="java.lang.Double" jdbcType="DOUBLE" />
+      <arg column="discounted_price" javaType="java.lang.Double" jdbcType="DOUBLE" />
+      <arg column="discount" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="buyer_number" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="purchase_lower_limit" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="purchase_upper_limit" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="start_time" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="end_time" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="status" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="tipped_time" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="stocks" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="short_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="attributes" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="delivery_fee" javaType="java.lang.Double" jdbcType="DOUBLE" />
+      <arg column="category" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="show_category" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="deal_group_label" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="site" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="real_buyer_number" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="sku_no" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="meta_keywords" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="draft_create_time" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="draft_create_username" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="draft_update_time" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="draft_update_username" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="draft_content_top_ad_image" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="draft_content_top_ad_url" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="product_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="brand_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="brand_label" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="redeem_lowest_total_price" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="user_purchase_limit" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="second_kill_time" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="medium_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="is_b2c_deal" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="related_deal_group_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="editor_username" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="shipping_system_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="shipping_system_type" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="special_deal_group_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="is_shown_in_home" javaType="java.lang.Boolean" jdbcType="BIT" />
+      <arg column="update_editor" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="refund_policy" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="sale_type" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="need_sync" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="ending_buyer_number" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="ad_copy" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="gold_member_price" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="platinum_member_price" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="diamond_member_price" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="company" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="dx_tag" javaType="java.lang.Boolean" jdbcType="BIT" />
+      <arg column="focus_title" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="focus_img_count" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="focus_bg_color" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="platform" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="sale_short_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="max_discounted_price" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="note" javaType="java.lang.String" jdbcType="LONGVARCHAR" />
+      <arg column="description" javaType="java.lang.String" jdbcType="LONGVARCHAR" />
+      <arg column="description_images" javaType="java.lang.String" jdbcType="LONGVARCHAR" />
+      <arg column="description_properties" javaType="java.lang.String" jdbcType="LONGVARCHAR" />
+      <arg column="description_usage" javaType="java.lang.String" jdbcType="LONGVARCHAR" />
+      <arg column="meta_description" javaType="java.lang.String" jdbcType="LONGVARCHAR" />
+      <arg column="draft_guide_comments" javaType="java.lang.String" jdbcType="LONGVARCHAR" />
+      <arg column="draft_our_comments" javaType="java.lang.String" jdbcType="LONGVARCHAR" />
+      <arg column="draft_related_hash_ids" javaType="java.lang.String" jdbcType="LONGVARCHAR" />
+      <arg column="draft_mobile_infos" javaType="java.lang.String" jdbcType="LONGVARCHAR" />
+      <arg column="order_promo_card_set" javaType="java.lang.String" jdbcType="LONGVARCHAR" />
+      <arg column="product_detail_images" javaType="java.lang.String" jdbcType="LONGVARCHAR" />
+      <arg column="deal_product_properties" javaType="java.lang.String" jdbcType="LONGVARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    hash_id, deal_id, name, original_price, discounted_price, discount, buyer_number, 
+    purchase_lower_limit, purchase_upper_limit, start_time, end_time, status, tipped_time, 
+    stocks, short_name, attributes, delivery_fee, category, show_category, deal_group_label, 
+    site, real_buyer_number, sku_no, meta_keywords, draft_create_time, draft_create_username, 
+    draft_update_time, draft_update_username, draft_content_top_ad_image, draft_content_top_ad_url, 
+    product_id, brand_id, brand_label, redeem_lowest_total_price, user_purchase_limit, 
+    second_kill_time, medium_name, is_b2c_deal, related_deal_group_name, editor_username, 
+    shipping_system_id, shipping_system_type, special_deal_group_name, is_shown_in_home, 
+    update_editor, refund_policy, sale_type, need_sync, ending_buyer_number, ad_copy, 
+    gold_member_price, platinum_member_price, diamond_member_price, company, dx_tag, 
+    focus_title, focus_img_count, focus_bg_color, platform, sale_short_name, max_discounted_price
+  </sql>
+  <sql id="Blob_Column_List">
+    note, description, description_images, description_properties, description_usage, 
+    meta_description, draft_guide_comments, draft_our_comments, draft_related_hash_ids, 
+    draft_mobile_infos, order_promo_card_set, product_detail_images, deal_product_properties
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="model.tuanmei_operation.pojo.tuanmei_deal_draftsExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from tuanmei_deal_drafts
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="model.tuanmei_operation.pojo.tuanmei_deal_draftsExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tuanmei_deal_drafts
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from tuanmei_deal_drafts
+    where hash_id = #{hashId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from tuanmei_deal_drafts
+    where hash_id = #{hashId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="model.tuanmei_operation.pojo.tuanmei_deal_draftsExample">
+    delete from tuanmei_deal_drafts
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="model.tuanmei_operation.pojo.tuanmei_deal_draftsWithBLOBs">
+    insert into tuanmei_deal_drafts (hash_id, deal_id, name, 
+      original_price, discounted_price, discount, 
+      buyer_number, purchase_lower_limit, purchase_upper_limit, 
+      start_time, end_time, status, 
+      tipped_time, stocks, short_name, 
+      attributes, delivery_fee, category, 
+      show_category, deal_group_label, site, 
+      real_buyer_number, sku_no, meta_keywords, 
+      draft_create_time, draft_create_username, draft_update_time, 
+      draft_update_username, draft_content_top_ad_image, 
+      draft_content_top_ad_url, product_id, brand_id, 
+      brand_label, redeem_lowest_total_price, user_purchase_limit, 
+      second_kill_time, medium_name, is_b2c_deal, 
+      related_deal_group_name, editor_username, shipping_system_id, 
+      shipping_system_type, special_deal_group_name, 
+      is_shown_in_home, update_editor, refund_policy, 
+      sale_type, need_sync, ending_buyer_number, 
+      ad_copy, gold_member_price, platinum_member_price, 
+      diamond_member_price, company, dx_tag, 
+      focus_title, focus_img_count, focus_bg_color, 
+      platform, sale_short_name, max_discounted_price, 
+      note, description, description_images, 
+      description_properties, description_usage, 
+      meta_description, draft_guide_comments, 
+      draft_our_comments, draft_related_hash_ids, 
+      draft_mobile_infos, order_promo_card_set, 
+      product_detail_images, deal_product_properties
+      )
+    values (#{hashId,jdbcType=VARCHAR}, #{dealId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
+      #{originalPrice,jdbcType=DOUBLE}, #{discountedPrice,jdbcType=DOUBLE}, #{discount,jdbcType=VARCHAR}, 
+      #{buyerNumber,jdbcType=INTEGER}, #{purchaseLowerLimit,jdbcType=INTEGER}, #{purchaseUpperLimit,jdbcType=INTEGER}, 
+      #{startTime,jdbcType=INTEGER}, #{endTime,jdbcType=INTEGER}, #{status,jdbcType=TINYINT}, 
+      #{tippedTime,jdbcType=INTEGER}, #{stocks,jdbcType=INTEGER}, #{shortName,jdbcType=VARCHAR}, 
+      #{attributes,jdbcType=VARCHAR}, #{deliveryFee,jdbcType=DOUBLE}, #{category,jdbcType=VARCHAR}, 
+      #{showCategory,jdbcType=VARCHAR}, #{dealGroupLabel,jdbcType=VARCHAR}, #{site,jdbcType=VARCHAR}, 
+      #{realBuyerNumber,jdbcType=INTEGER}, #{skuNo,jdbcType=VARCHAR}, #{metaKeywords,jdbcType=VARCHAR}, 
+      #{draftCreateTime,jdbcType=INTEGER}, #{draftCreateUsername,jdbcType=VARCHAR}, #{draftUpdateTime,jdbcType=INTEGER}, 
+      #{draftUpdateUsername,jdbcType=VARCHAR}, #{draftContentTopAdImage,jdbcType=VARCHAR}, 
+      #{draftContentTopAdUrl,jdbcType=VARCHAR}, #{productId,jdbcType=INTEGER}, #{brandId,jdbcType=INTEGER}, 
+      #{brandLabel,jdbcType=VARCHAR}, #{redeemLowestTotalPrice,jdbcType=DECIMAL}, #{userPurchaseLimit,jdbcType=INTEGER}, 
+      #{secondKillTime,jdbcType=INTEGER}, #{mediumName,jdbcType=VARCHAR}, #{isB2cDeal,jdbcType=TINYINT}, 
+      #{relatedDealGroupName,jdbcType=VARCHAR}, #{editorUsername,jdbcType=VARCHAR}, #{shippingSystemId,jdbcType=INTEGER}, 
+      #{shippingSystemType,jdbcType=VARCHAR}, #{specialDealGroupName,jdbcType=VARCHAR}, 
+      #{isShownInHome,jdbcType=BIT}, #{updateEditor,jdbcType=VARCHAR}, #{refundPolicy,jdbcType=VARCHAR}, 
+      #{saleType,jdbcType=VARCHAR}, #{needSync,jdbcType=TINYINT}, #{endingBuyerNumber,jdbcType=INTEGER}, 
+      #{adCopy,jdbcType=VARCHAR}, #{goldMemberPrice,jdbcType=DECIMAL}, #{platinumMemberPrice,jdbcType=DECIMAL}, 
+      #{diamondMemberPrice,jdbcType=DECIMAL}, #{company,jdbcType=VARCHAR}, #{dxTag,jdbcType=BIT}, 
+      #{focusTitle,jdbcType=VARCHAR}, #{focusImgCount,jdbcType=VARCHAR}, #{focusBgColor,jdbcType=VARCHAR}, 
+      #{platform,jdbcType=VARCHAR}, #{saleShortName,jdbcType=VARCHAR}, #{maxDiscountedPrice,jdbcType=DECIMAL}, 
+      #{note,jdbcType=LONGVARCHAR}, #{description,jdbcType=LONGVARCHAR}, #{descriptionImages,jdbcType=LONGVARCHAR}, 
+      #{descriptionProperties,jdbcType=LONGVARCHAR}, #{descriptionUsage,jdbcType=LONGVARCHAR}, 
+      #{metaDescription,jdbcType=LONGVARCHAR}, #{draftGuideComments,jdbcType=LONGVARCHAR}, 
+      #{draftOurComments,jdbcType=LONGVARCHAR}, #{draftRelatedHashIds,jdbcType=LONGVARCHAR}, 
+      #{draftMobileInfos,jdbcType=LONGVARCHAR}, #{orderPromoCardSet,jdbcType=LONGVARCHAR}, 
+      #{productDetailImages,jdbcType=LONGVARCHAR}, #{dealProductProperties,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="model.tuanmei_operation.pojo.tuanmei_deal_draftsWithBLOBs">
+    insert into tuanmei_deal_drafts
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="hashId != null">
+        hash_id,
+      </if>
+      <if test="dealId != null">
+        deal_id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="originalPrice != null">
+        original_price,
+      </if>
+      <if test="discountedPrice != null">
+        discounted_price,
+      </if>
+      <if test="discount != null">
+        discount,
+      </if>
+      <if test="buyerNumber != null">
+        buyer_number,
+      </if>
+      <if test="purchaseLowerLimit != null">
+        purchase_lower_limit,
+      </if>
+      <if test="purchaseUpperLimit != null">
+        purchase_upper_limit,
+      </if>
+      <if test="startTime != null">
+        start_time,
+      </if>
+      <if test="endTime != null">
+        end_time,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="tippedTime != null">
+        tipped_time,
+      </if>
+      <if test="stocks != null">
+        stocks,
+      </if>
+      <if test="shortName != null">
+        short_name,
+      </if>
+      <if test="attributes != null">
+        attributes,
+      </if>
+      <if test="deliveryFee != null">
+        delivery_fee,
+      </if>
+      <if test="category != null">
+        category,
+      </if>
+      <if test="showCategory != null">
+        show_category,
+      </if>
+      <if test="dealGroupLabel != null">
+        deal_group_label,
+      </if>
+      <if test="site != null">
+        site,
+      </if>
+      <if test="realBuyerNumber != null">
+        real_buyer_number,
+      </if>
+      <if test="skuNo != null">
+        sku_no,
+      </if>
+      <if test="metaKeywords != null">
+        meta_keywords,
+      </if>
+      <if test="draftCreateTime != null">
+        draft_create_time,
+      </if>
+      <if test="draftCreateUsername != null">
+        draft_create_username,
+      </if>
+      <if test="draftUpdateTime != null">
+        draft_update_time,
+      </if>
+      <if test="draftUpdateUsername != null">
+        draft_update_username,
+      </if>
+      <if test="draftContentTopAdImage != null">
+        draft_content_top_ad_image,
+      </if>
+      <if test="draftContentTopAdUrl != null">
+        draft_content_top_ad_url,
+      </if>
+      <if test="productId != null">
+        product_id,
+      </if>
+      <if test="brandId != null">
+        brand_id,
+      </if>
+      <if test="brandLabel != null">
+        brand_label,
+      </if>
+      <if test="redeemLowestTotalPrice != null">
+        redeem_lowest_total_price,
+      </if>
+      <if test="userPurchaseLimit != null">
+        user_purchase_limit,
+      </if>
+      <if test="secondKillTime != null">
+        second_kill_time,
+      </if>
+      <if test="mediumName != null">
+        medium_name,
+      </if>
+      <if test="isB2cDeal != null">
+        is_b2c_deal,
+      </if>
+      <if test="relatedDealGroupName != null">
+        related_deal_group_name,
+      </if>
+      <if test="editorUsername != null">
+        editor_username,
+      </if>
+      <if test="shippingSystemId != null">
+        shipping_system_id,
+      </if>
+      <if test="shippingSystemType != null">
+        shipping_system_type,
+      </if>
+      <if test="specialDealGroupName != null">
+        special_deal_group_name,
+      </if>
+      <if test="isShownInHome != null">
+        is_shown_in_home,
+      </if>
+      <if test="updateEditor != null">
+        update_editor,
+      </if>
+      <if test="refundPolicy != null">
+        refund_policy,
+      </if>
+      <if test="saleType != null">
+        sale_type,
+      </if>
+      <if test="needSync != null">
+        need_sync,
+      </if>
+      <if test="endingBuyerNumber != null">
+        ending_buyer_number,
+      </if>
+      <if test="adCopy != null">
+        ad_copy,
+      </if>
+      <if test="goldMemberPrice != null">
+        gold_member_price,
+      </if>
+      <if test="platinumMemberPrice != null">
+        platinum_member_price,
+      </if>
+      <if test="diamondMemberPrice != null">
+        diamond_member_price,
+      </if>
+      <if test="company != null">
+        company,
+      </if>
+      <if test="dxTag != null">
+        dx_tag,
+      </if>
+      <if test="focusTitle != null">
+        focus_title,
+      </if>
+      <if test="focusImgCount != null">
+        focus_img_count,
+      </if>
+      <if test="focusBgColor != null">
+        focus_bg_color,
+      </if>
+      <if test="platform != null">
+        platform,
+      </if>
+      <if test="saleShortName != null">
+        sale_short_name,
+      </if>
+      <if test="maxDiscountedPrice != null">
+        max_discounted_price,
+      </if>
+      <if test="note != null">
+        note,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+      <if test="descriptionImages != null">
+        description_images,
+      </if>
+      <if test="descriptionProperties != null">
+        description_properties,
+      </if>
+      <if test="descriptionUsage != null">
+        description_usage,
+      </if>
+      <if test="metaDescription != null">
+        meta_description,
+      </if>
+      <if test="draftGuideComments != null">
+        draft_guide_comments,
+      </if>
+      <if test="draftOurComments != null">
+        draft_our_comments,
+      </if>
+      <if test="draftRelatedHashIds != null">
+        draft_related_hash_ids,
+      </if>
+      <if test="draftMobileInfos != null">
+        draft_mobile_infos,
+      </if>
+      <if test="orderPromoCardSet != null">
+        order_promo_card_set,
+      </if>
+      <if test="productDetailImages != null">
+        product_detail_images,
+      </if>
+      <if test="dealProductProperties != null">
+        deal_product_properties,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="hashId != null">
+        #{hashId,jdbcType=VARCHAR},
+      </if>
+      <if test="dealId != null">
+        #{dealId,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="originalPrice != null">
+        #{originalPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="discountedPrice != null">
+        #{discountedPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="discount != null">
+        #{discount,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerNumber != null">
+        #{buyerNumber,jdbcType=INTEGER},
+      </if>
+      <if test="purchaseLowerLimit != null">
+        #{purchaseLowerLimit,jdbcType=INTEGER},
+      </if>
+      <if test="purchaseUpperLimit != null">
+        #{purchaseUpperLimit,jdbcType=INTEGER},
+      </if>
+      <if test="startTime != null">
+        #{startTime,jdbcType=INTEGER},
+      </if>
+      <if test="endTime != null">
+        #{endTime,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="tippedTime != null">
+        #{tippedTime,jdbcType=INTEGER},
+      </if>
+      <if test="stocks != null">
+        #{stocks,jdbcType=INTEGER},
+      </if>
+      <if test="shortName != null">
+        #{shortName,jdbcType=VARCHAR},
+      </if>
+      <if test="attributes != null">
+        #{attributes,jdbcType=VARCHAR},
+      </if>
+      <if test="deliveryFee != null">
+        #{deliveryFee,jdbcType=DOUBLE},
+      </if>
+      <if test="category != null">
+        #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="showCategory != null">
+        #{showCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="dealGroupLabel != null">
+        #{dealGroupLabel,jdbcType=VARCHAR},
+      </if>
+      <if test="site != null">
+        #{site,jdbcType=VARCHAR},
+      </if>
+      <if test="realBuyerNumber != null">
+        #{realBuyerNumber,jdbcType=INTEGER},
+      </if>
+      <if test="skuNo != null">
+        #{skuNo,jdbcType=VARCHAR},
+      </if>
+      <if test="metaKeywords != null">
+        #{metaKeywords,jdbcType=VARCHAR},
+      </if>
+      <if test="draftCreateTime != null">
+        #{draftCreateTime,jdbcType=INTEGER},
+      </if>
+      <if test="draftCreateUsername != null">
+        #{draftCreateUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="draftUpdateTime != null">
+        #{draftUpdateTime,jdbcType=INTEGER},
+      </if>
+      <if test="draftUpdateUsername != null">
+        #{draftUpdateUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="draftContentTopAdImage != null">
+        #{draftContentTopAdImage,jdbcType=VARCHAR},
+      </if>
+      <if test="draftContentTopAdUrl != null">
+        #{draftContentTopAdUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="productId != null">
+        #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="brandId != null">
+        #{brandId,jdbcType=INTEGER},
+      </if>
+      <if test="brandLabel != null">
+        #{brandLabel,jdbcType=VARCHAR},
+      </if>
+      <if test="redeemLowestTotalPrice != null">
+        #{redeemLowestTotalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="userPurchaseLimit != null">
+        #{userPurchaseLimit,jdbcType=INTEGER},
+      </if>
+      <if test="secondKillTime != null">
+        #{secondKillTime,jdbcType=INTEGER},
+      </if>
+      <if test="mediumName != null">
+        #{mediumName,jdbcType=VARCHAR},
+      </if>
+      <if test="isB2cDeal != null">
+        #{isB2cDeal,jdbcType=TINYINT},
+      </if>
+      <if test="relatedDealGroupName != null">
+        #{relatedDealGroupName,jdbcType=VARCHAR},
+      </if>
+      <if test="editorUsername != null">
+        #{editorUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="shippingSystemId != null">
+        #{shippingSystemId,jdbcType=INTEGER},
+      </if>
+      <if test="shippingSystemType != null">
+        #{shippingSystemType,jdbcType=VARCHAR},
+      </if>
+      <if test="specialDealGroupName != null">
+        #{specialDealGroupName,jdbcType=VARCHAR},
+      </if>
+      <if test="isShownInHome != null">
+        #{isShownInHome,jdbcType=BIT},
+      </if>
+      <if test="updateEditor != null">
+        #{updateEditor,jdbcType=VARCHAR},
+      </if>
+      <if test="refundPolicy != null">
+        #{refundPolicy,jdbcType=VARCHAR},
+      </if>
+      <if test="saleType != null">
+        #{saleType,jdbcType=VARCHAR},
+      </if>
+      <if test="needSync != null">
+        #{needSync,jdbcType=TINYINT},
+      </if>
+      <if test="endingBuyerNumber != null">
+        #{endingBuyerNumber,jdbcType=INTEGER},
+      </if>
+      <if test="adCopy != null">
+        #{adCopy,jdbcType=VARCHAR},
+      </if>
+      <if test="goldMemberPrice != null">
+        #{goldMemberPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="platinumMemberPrice != null">
+        #{platinumMemberPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="diamondMemberPrice != null">
+        #{diamondMemberPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="company != null">
+        #{company,jdbcType=VARCHAR},
+      </if>
+      <if test="dxTag != null">
+        #{dxTag,jdbcType=BIT},
+      </if>
+      <if test="focusTitle != null">
+        #{focusTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="focusImgCount != null">
+        #{focusImgCount,jdbcType=VARCHAR},
+      </if>
+      <if test="focusBgColor != null">
+        #{focusBgColor,jdbcType=VARCHAR},
+      </if>
+      <if test="platform != null">
+        #{platform,jdbcType=VARCHAR},
+      </if>
+      <if test="saleShortName != null">
+        #{saleShortName,jdbcType=VARCHAR},
+      </if>
+      <if test="maxDiscountedPrice != null">
+        #{maxDiscountedPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="note != null">
+        #{note,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="descriptionImages != null">
+        #{descriptionImages,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="descriptionProperties != null">
+        #{descriptionProperties,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="descriptionUsage != null">
+        #{descriptionUsage,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="metaDescription != null">
+        #{metaDescription,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="draftGuideComments != null">
+        #{draftGuideComments,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="draftOurComments != null">
+        #{draftOurComments,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="draftRelatedHashIds != null">
+        #{draftRelatedHashIds,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="draftMobileInfos != null">
+        #{draftMobileInfos,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="orderPromoCardSet != null">
+        #{orderPromoCardSet,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="productDetailImages != null">
+        #{productDetailImages,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="dealProductProperties != null">
+        #{dealProductProperties,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="model.tuanmei_operation.pojo.tuanmei_deal_draftsExample" resultType="java.lang.Long">
+    select count(*) from tuanmei_deal_drafts
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update tuanmei_deal_drafts
+    <set>
+      <if test="record.hashId != null">
+        hash_id = #{record.hashId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dealId != null">
+        deal_id = #{record.dealId,jdbcType=INTEGER},
+      </if>
+      <if test="record.name != null">
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.originalPrice != null">
+        original_price = #{record.originalPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="record.discountedPrice != null">
+        discounted_price = #{record.discountedPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="record.discount != null">
+        discount = #{record.discount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.buyerNumber != null">
+        buyer_number = #{record.buyerNumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.purchaseLowerLimit != null">
+        purchase_lower_limit = #{record.purchaseLowerLimit,jdbcType=INTEGER},
+      </if>
+      <if test="record.purchaseUpperLimit != null">
+        purchase_upper_limit = #{record.purchaseUpperLimit,jdbcType=INTEGER},
+      </if>
+      <if test="record.startTime != null">
+        start_time = #{record.startTime,jdbcType=INTEGER},
+      </if>
+      <if test="record.endTime != null">
+        end_time = #{record.endTime,jdbcType=INTEGER},
+      </if>
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=TINYINT},
+      </if>
+      <if test="record.tippedTime != null">
+        tipped_time = #{record.tippedTime,jdbcType=INTEGER},
+      </if>
+      <if test="record.stocks != null">
+        stocks = #{record.stocks,jdbcType=INTEGER},
+      </if>
+      <if test="record.shortName != null">
+        short_name = #{record.shortName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.attributes != null">
+        attributes = #{record.attributes,jdbcType=VARCHAR},
+      </if>
+      <if test="record.deliveryFee != null">
+        delivery_fee = #{record.deliveryFee,jdbcType=DOUBLE},
+      </if>
+      <if test="record.category != null">
+        category = #{record.category,jdbcType=VARCHAR},
+      </if>
+      <if test="record.showCategory != null">
+        show_category = #{record.showCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dealGroupLabel != null">
+        deal_group_label = #{record.dealGroupLabel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.site != null">
+        site = #{record.site,jdbcType=VARCHAR},
+      </if>
+      <if test="record.realBuyerNumber != null">
+        real_buyer_number = #{record.realBuyerNumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.skuNo != null">
+        sku_no = #{record.skuNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.metaKeywords != null">
+        meta_keywords = #{record.metaKeywords,jdbcType=VARCHAR},
+      </if>
+      <if test="record.draftCreateTime != null">
+        draft_create_time = #{record.draftCreateTime,jdbcType=INTEGER},
+      </if>
+      <if test="record.draftCreateUsername != null">
+        draft_create_username = #{record.draftCreateUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="record.draftUpdateTime != null">
+        draft_update_time = #{record.draftUpdateTime,jdbcType=INTEGER},
+      </if>
+      <if test="record.draftUpdateUsername != null">
+        draft_update_username = #{record.draftUpdateUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="record.draftContentTopAdImage != null">
+        draft_content_top_ad_image = #{record.draftContentTopAdImage,jdbcType=VARCHAR},
+      </if>
+      <if test="record.draftContentTopAdUrl != null">
+        draft_content_top_ad_url = #{record.draftContentTopAdUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.productId != null">
+        product_id = #{record.productId,jdbcType=INTEGER},
+      </if>
+      <if test="record.brandId != null">
+        brand_id = #{record.brandId,jdbcType=INTEGER},
+      </if>
+      <if test="record.brandLabel != null">
+        brand_label = #{record.brandLabel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.redeemLowestTotalPrice != null">
+        redeem_lowest_total_price = #{record.redeemLowestTotalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.userPurchaseLimit != null">
+        user_purchase_limit = #{record.userPurchaseLimit,jdbcType=INTEGER},
+      </if>
+      <if test="record.secondKillTime != null">
+        second_kill_time = #{record.secondKillTime,jdbcType=INTEGER},
+      </if>
+      <if test="record.mediumName != null">
+        medium_name = #{record.mediumName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isB2cDeal != null">
+        is_b2c_deal = #{record.isB2cDeal,jdbcType=TINYINT},
+      </if>
+      <if test="record.relatedDealGroupName != null">
+        related_deal_group_name = #{record.relatedDealGroupName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.editorUsername != null">
+        editor_username = #{record.editorUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shippingSystemId != null">
+        shipping_system_id = #{record.shippingSystemId,jdbcType=INTEGER},
+      </if>
+      <if test="record.shippingSystemType != null">
+        shipping_system_type = #{record.shippingSystemType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.specialDealGroupName != null">
+        special_deal_group_name = #{record.specialDealGroupName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isShownInHome != null">
+        is_shown_in_home = #{record.isShownInHome,jdbcType=BIT},
+      </if>
+      <if test="record.updateEditor != null">
+        update_editor = #{record.updateEditor,jdbcType=VARCHAR},
+      </if>
+      <if test="record.refundPolicy != null">
+        refund_policy = #{record.refundPolicy,jdbcType=VARCHAR},
+      </if>
+      <if test="record.saleType != null">
+        sale_type = #{record.saleType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.needSync != null">
+        need_sync = #{record.needSync,jdbcType=TINYINT},
+      </if>
+      <if test="record.endingBuyerNumber != null">
+        ending_buyer_number = #{record.endingBuyerNumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.adCopy != null">
+        ad_copy = #{record.adCopy,jdbcType=VARCHAR},
+      </if>
+      <if test="record.goldMemberPrice != null">
+        gold_member_price = #{record.goldMemberPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.platinumMemberPrice != null">
+        platinum_member_price = #{record.platinumMemberPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.diamondMemberPrice != null">
+        diamond_member_price = #{record.diamondMemberPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.company != null">
+        company = #{record.company,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dxTag != null">
+        dx_tag = #{record.dxTag,jdbcType=BIT},
+      </if>
+      <if test="record.focusTitle != null">
+        focus_title = #{record.focusTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.focusImgCount != null">
+        focus_img_count = #{record.focusImgCount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.focusBgColor != null">
+        focus_bg_color = #{record.focusBgColor,jdbcType=VARCHAR},
+      </if>
+      <if test="record.platform != null">
+        platform = #{record.platform,jdbcType=VARCHAR},
+      </if>
+      <if test="record.saleShortName != null">
+        sale_short_name = #{record.saleShortName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.maxDiscountedPrice != null">
+        max_discounted_price = #{record.maxDiscountedPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.note != null">
+        note = #{record.note,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.description != null">
+        description = #{record.description,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.descriptionImages != null">
+        description_images = #{record.descriptionImages,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.descriptionProperties != null">
+        description_properties = #{record.descriptionProperties,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.descriptionUsage != null">
+        description_usage = #{record.descriptionUsage,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.metaDescription != null">
+        meta_description = #{record.metaDescription,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.draftGuideComments != null">
+        draft_guide_comments = #{record.draftGuideComments,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.draftOurComments != null">
+        draft_our_comments = #{record.draftOurComments,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.draftRelatedHashIds != null">
+        draft_related_hash_ids = #{record.draftRelatedHashIds,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.draftMobileInfos != null">
+        draft_mobile_infos = #{record.draftMobileInfos,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.orderPromoCardSet != null">
+        order_promo_card_set = #{record.orderPromoCardSet,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.productDetailImages != null">
+        product_detail_images = #{record.productDetailImages,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.dealProductProperties != null">
+        deal_product_properties = #{record.dealProductProperties,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update tuanmei_deal_drafts
+    set hash_id = #{record.hashId,jdbcType=VARCHAR},
+      deal_id = #{record.dealId,jdbcType=INTEGER},
+      name = #{record.name,jdbcType=VARCHAR},
+      original_price = #{record.originalPrice,jdbcType=DOUBLE},
+      discounted_price = #{record.discountedPrice,jdbcType=DOUBLE},
+      discount = #{record.discount,jdbcType=VARCHAR},
+      buyer_number = #{record.buyerNumber,jdbcType=INTEGER},
+      purchase_lower_limit = #{record.purchaseLowerLimit,jdbcType=INTEGER},
+      purchase_upper_limit = #{record.purchaseUpperLimit,jdbcType=INTEGER},
+      start_time = #{record.startTime,jdbcType=INTEGER},
+      end_time = #{record.endTime,jdbcType=INTEGER},
+      status = #{record.status,jdbcType=TINYINT},
+      tipped_time = #{record.tippedTime,jdbcType=INTEGER},
+      stocks = #{record.stocks,jdbcType=INTEGER},
+      short_name = #{record.shortName,jdbcType=VARCHAR},
+      attributes = #{record.attributes,jdbcType=VARCHAR},
+      delivery_fee = #{record.deliveryFee,jdbcType=DOUBLE},
+      category = #{record.category,jdbcType=VARCHAR},
+      show_category = #{record.showCategory,jdbcType=VARCHAR},
+      deal_group_label = #{record.dealGroupLabel,jdbcType=VARCHAR},
+      site = #{record.site,jdbcType=VARCHAR},
+      real_buyer_number = #{record.realBuyerNumber,jdbcType=INTEGER},
+      sku_no = #{record.skuNo,jdbcType=VARCHAR},
+      meta_keywords = #{record.metaKeywords,jdbcType=VARCHAR},
+      draft_create_time = #{record.draftCreateTime,jdbcType=INTEGER},
+      draft_create_username = #{record.draftCreateUsername,jdbcType=VARCHAR},
+      draft_update_time = #{record.draftUpdateTime,jdbcType=INTEGER},
+      draft_update_username = #{record.draftUpdateUsername,jdbcType=VARCHAR},
+      draft_content_top_ad_image = #{record.draftContentTopAdImage,jdbcType=VARCHAR},
+      draft_content_top_ad_url = #{record.draftContentTopAdUrl,jdbcType=VARCHAR},
+      product_id = #{record.productId,jdbcType=INTEGER},
+      brand_id = #{record.brandId,jdbcType=INTEGER},
+      brand_label = #{record.brandLabel,jdbcType=VARCHAR},
+      redeem_lowest_total_price = #{record.redeemLowestTotalPrice,jdbcType=DECIMAL},
+      user_purchase_limit = #{record.userPurchaseLimit,jdbcType=INTEGER},
+      second_kill_time = #{record.secondKillTime,jdbcType=INTEGER},
+      medium_name = #{record.mediumName,jdbcType=VARCHAR},
+      is_b2c_deal = #{record.isB2cDeal,jdbcType=TINYINT},
+      related_deal_group_name = #{record.relatedDealGroupName,jdbcType=VARCHAR},
+      editor_username = #{record.editorUsername,jdbcType=VARCHAR},
+      shipping_system_id = #{record.shippingSystemId,jdbcType=INTEGER},
+      shipping_system_type = #{record.shippingSystemType,jdbcType=VARCHAR},
+      special_deal_group_name = #{record.specialDealGroupName,jdbcType=VARCHAR},
+      is_shown_in_home = #{record.isShownInHome,jdbcType=BIT},
+      update_editor = #{record.updateEditor,jdbcType=VARCHAR},
+      refund_policy = #{record.refundPolicy,jdbcType=VARCHAR},
+      sale_type = #{record.saleType,jdbcType=VARCHAR},
+      need_sync = #{record.needSync,jdbcType=TINYINT},
+      ending_buyer_number = #{record.endingBuyerNumber,jdbcType=INTEGER},
+      ad_copy = #{record.adCopy,jdbcType=VARCHAR},
+      gold_member_price = #{record.goldMemberPrice,jdbcType=DECIMAL},
+      platinum_member_price = #{record.platinumMemberPrice,jdbcType=DECIMAL},
+      diamond_member_price = #{record.diamondMemberPrice,jdbcType=DECIMAL},
+      company = #{record.company,jdbcType=VARCHAR},
+      dx_tag = #{record.dxTag,jdbcType=BIT},
+      focus_title = #{record.focusTitle,jdbcType=VARCHAR},
+      focus_img_count = #{record.focusImgCount,jdbcType=VARCHAR},
+      focus_bg_color = #{record.focusBgColor,jdbcType=VARCHAR},
+      platform = #{record.platform,jdbcType=VARCHAR},
+      sale_short_name = #{record.saleShortName,jdbcType=VARCHAR},
+      max_discounted_price = #{record.maxDiscountedPrice,jdbcType=DECIMAL},
+      note = #{record.note,jdbcType=LONGVARCHAR},
+      description = #{record.description,jdbcType=LONGVARCHAR},
+      description_images = #{record.descriptionImages,jdbcType=LONGVARCHAR},
+      description_properties = #{record.descriptionProperties,jdbcType=LONGVARCHAR},
+      description_usage = #{record.descriptionUsage,jdbcType=LONGVARCHAR},
+      meta_description = #{record.metaDescription,jdbcType=LONGVARCHAR},
+      draft_guide_comments = #{record.draftGuideComments,jdbcType=LONGVARCHAR},
+      draft_our_comments = #{record.draftOurComments,jdbcType=LONGVARCHAR},
+      draft_related_hash_ids = #{record.draftRelatedHashIds,jdbcType=LONGVARCHAR},
+      draft_mobile_infos = #{record.draftMobileInfos,jdbcType=LONGVARCHAR},
+      order_promo_card_set = #{record.orderPromoCardSet,jdbcType=LONGVARCHAR},
+      product_detail_images = #{record.productDetailImages,jdbcType=LONGVARCHAR},
+      deal_product_properties = #{record.dealProductProperties,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update tuanmei_deal_drafts
+    set hash_id = #{record.hashId,jdbcType=VARCHAR},
+      deal_id = #{record.dealId,jdbcType=INTEGER},
+      name = #{record.name,jdbcType=VARCHAR},
+      original_price = #{record.originalPrice,jdbcType=DOUBLE},
+      discounted_price = #{record.discountedPrice,jdbcType=DOUBLE},
+      discount = #{record.discount,jdbcType=VARCHAR},
+      buyer_number = #{record.buyerNumber,jdbcType=INTEGER},
+      purchase_lower_limit = #{record.purchaseLowerLimit,jdbcType=INTEGER},
+      purchase_upper_limit = #{record.purchaseUpperLimit,jdbcType=INTEGER},
+      start_time = #{record.startTime,jdbcType=INTEGER},
+      end_time = #{record.endTime,jdbcType=INTEGER},
+      status = #{record.status,jdbcType=TINYINT},
+      tipped_time = #{record.tippedTime,jdbcType=INTEGER},
+      stocks = #{record.stocks,jdbcType=INTEGER},
+      short_name = #{record.shortName,jdbcType=VARCHAR},
+      attributes = #{record.attributes,jdbcType=VARCHAR},
+      delivery_fee = #{record.deliveryFee,jdbcType=DOUBLE},
+      category = #{record.category,jdbcType=VARCHAR},
+      show_category = #{record.showCategory,jdbcType=VARCHAR},
+      deal_group_label = #{record.dealGroupLabel,jdbcType=VARCHAR},
+      site = #{record.site,jdbcType=VARCHAR},
+      real_buyer_number = #{record.realBuyerNumber,jdbcType=INTEGER},
+      sku_no = #{record.skuNo,jdbcType=VARCHAR},
+      meta_keywords = #{record.metaKeywords,jdbcType=VARCHAR},
+      draft_create_time = #{record.draftCreateTime,jdbcType=INTEGER},
+      draft_create_username = #{record.draftCreateUsername,jdbcType=VARCHAR},
+      draft_update_time = #{record.draftUpdateTime,jdbcType=INTEGER},
+      draft_update_username = #{record.draftUpdateUsername,jdbcType=VARCHAR},
+      draft_content_top_ad_image = #{record.draftContentTopAdImage,jdbcType=VARCHAR},
+      draft_content_top_ad_url = #{record.draftContentTopAdUrl,jdbcType=VARCHAR},
+      product_id = #{record.productId,jdbcType=INTEGER},
+      brand_id = #{record.brandId,jdbcType=INTEGER},
+      brand_label = #{record.brandLabel,jdbcType=VARCHAR},
+      redeem_lowest_total_price = #{record.redeemLowestTotalPrice,jdbcType=DECIMAL},
+      user_purchase_limit = #{record.userPurchaseLimit,jdbcType=INTEGER},
+      second_kill_time = #{record.secondKillTime,jdbcType=INTEGER},
+      medium_name = #{record.mediumName,jdbcType=VARCHAR},
+      is_b2c_deal = #{record.isB2cDeal,jdbcType=TINYINT},
+      related_deal_group_name = #{record.relatedDealGroupName,jdbcType=VARCHAR},
+      editor_username = #{record.editorUsername,jdbcType=VARCHAR},
+      shipping_system_id = #{record.shippingSystemId,jdbcType=INTEGER},
+      shipping_system_type = #{record.shippingSystemType,jdbcType=VARCHAR},
+      special_deal_group_name = #{record.specialDealGroupName,jdbcType=VARCHAR},
+      is_shown_in_home = #{record.isShownInHome,jdbcType=BIT},
+      update_editor = #{record.updateEditor,jdbcType=VARCHAR},
+      refund_policy = #{record.refundPolicy,jdbcType=VARCHAR},
+      sale_type = #{record.saleType,jdbcType=VARCHAR},
+      need_sync = #{record.needSync,jdbcType=TINYINT},
+      ending_buyer_number = #{record.endingBuyerNumber,jdbcType=INTEGER},
+      ad_copy = #{record.adCopy,jdbcType=VARCHAR},
+      gold_member_price = #{record.goldMemberPrice,jdbcType=DECIMAL},
+      platinum_member_price = #{record.platinumMemberPrice,jdbcType=DECIMAL},
+      diamond_member_price = #{record.diamondMemberPrice,jdbcType=DECIMAL},
+      company = #{record.company,jdbcType=VARCHAR},
+      dx_tag = #{record.dxTag,jdbcType=BIT},
+      focus_title = #{record.focusTitle,jdbcType=VARCHAR},
+      focus_img_count = #{record.focusImgCount,jdbcType=VARCHAR},
+      focus_bg_color = #{record.focusBgColor,jdbcType=VARCHAR},
+      platform = #{record.platform,jdbcType=VARCHAR},
+      sale_short_name = #{record.saleShortName,jdbcType=VARCHAR},
+      max_discounted_price = #{record.maxDiscountedPrice,jdbcType=DECIMAL}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="model.tuanmei_operation.pojo.tuanmei_deal_draftsWithBLOBs">
+    update tuanmei_deal_drafts
+    <set>
+      <if test="dealId != null">
+        deal_id = #{dealId,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="originalPrice != null">
+        original_price = #{originalPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="discountedPrice != null">
+        discounted_price = #{discountedPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="discount != null">
+        discount = #{discount,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerNumber != null">
+        buyer_number = #{buyerNumber,jdbcType=INTEGER},
+      </if>
+      <if test="purchaseLowerLimit != null">
+        purchase_lower_limit = #{purchaseLowerLimit,jdbcType=INTEGER},
+      </if>
+      <if test="purchaseUpperLimit != null">
+        purchase_upper_limit = #{purchaseUpperLimit,jdbcType=INTEGER},
+      </if>
+      <if test="startTime != null">
+        start_time = #{startTime,jdbcType=INTEGER},
+      </if>
+      <if test="endTime != null">
+        end_time = #{endTime,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="tippedTime != null">
+        tipped_time = #{tippedTime,jdbcType=INTEGER},
+      </if>
+      <if test="stocks != null">
+        stocks = #{stocks,jdbcType=INTEGER},
+      </if>
+      <if test="shortName != null">
+        short_name = #{shortName,jdbcType=VARCHAR},
+      </if>
+      <if test="attributes != null">
+        attributes = #{attributes,jdbcType=VARCHAR},
+      </if>
+      <if test="deliveryFee != null">
+        delivery_fee = #{deliveryFee,jdbcType=DOUBLE},
+      </if>
+      <if test="category != null">
+        category = #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="showCategory != null">
+        show_category = #{showCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="dealGroupLabel != null">
+        deal_group_label = #{dealGroupLabel,jdbcType=VARCHAR},
+      </if>
+      <if test="site != null">
+        site = #{site,jdbcType=VARCHAR},
+      </if>
+      <if test="realBuyerNumber != null">
+        real_buyer_number = #{realBuyerNumber,jdbcType=INTEGER},
+      </if>
+      <if test="skuNo != null">
+        sku_no = #{skuNo,jdbcType=VARCHAR},
+      </if>
+      <if test="metaKeywords != null">
+        meta_keywords = #{metaKeywords,jdbcType=VARCHAR},
+      </if>
+      <if test="draftCreateTime != null">
+        draft_create_time = #{draftCreateTime,jdbcType=INTEGER},
+      </if>
+      <if test="draftCreateUsername != null">
+        draft_create_username = #{draftCreateUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="draftUpdateTime != null">
+        draft_update_time = #{draftUpdateTime,jdbcType=INTEGER},
+      </if>
+      <if test="draftUpdateUsername != null">
+        draft_update_username = #{draftUpdateUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="draftContentTopAdImage != null">
+        draft_content_top_ad_image = #{draftContentTopAdImage,jdbcType=VARCHAR},
+      </if>
+      <if test="draftContentTopAdUrl != null">
+        draft_content_top_ad_url = #{draftContentTopAdUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="productId != null">
+        product_id = #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="brandId != null">
+        brand_id = #{brandId,jdbcType=INTEGER},
+      </if>
+      <if test="brandLabel != null">
+        brand_label = #{brandLabel,jdbcType=VARCHAR},
+      </if>
+      <if test="redeemLowestTotalPrice != null">
+        redeem_lowest_total_price = #{redeemLowestTotalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="userPurchaseLimit != null">
+        user_purchase_limit = #{userPurchaseLimit,jdbcType=INTEGER},
+      </if>
+      <if test="secondKillTime != null">
+        second_kill_time = #{secondKillTime,jdbcType=INTEGER},
+      </if>
+      <if test="mediumName != null">
+        medium_name = #{mediumName,jdbcType=VARCHAR},
+      </if>
+      <if test="isB2cDeal != null">
+        is_b2c_deal = #{isB2cDeal,jdbcType=TINYINT},
+      </if>
+      <if test="relatedDealGroupName != null">
+        related_deal_group_name = #{relatedDealGroupName,jdbcType=VARCHAR},
+      </if>
+      <if test="editorUsername != null">
+        editor_username = #{editorUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="shippingSystemId != null">
+        shipping_system_id = #{shippingSystemId,jdbcType=INTEGER},
+      </if>
+      <if test="shippingSystemType != null">
+        shipping_system_type = #{shippingSystemType,jdbcType=VARCHAR},
+      </if>
+      <if test="specialDealGroupName != null">
+        special_deal_group_name = #{specialDealGroupName,jdbcType=VARCHAR},
+      </if>
+      <if test="isShownInHome != null">
+        is_shown_in_home = #{isShownInHome,jdbcType=BIT},
+      </if>
+      <if test="updateEditor != null">
+        update_editor = #{updateEditor,jdbcType=VARCHAR},
+      </if>
+      <if test="refundPolicy != null">
+        refund_policy = #{refundPolicy,jdbcType=VARCHAR},
+      </if>
+      <if test="saleType != null">
+        sale_type = #{saleType,jdbcType=VARCHAR},
+      </if>
+      <if test="needSync != null">
+        need_sync = #{needSync,jdbcType=TINYINT},
+      </if>
+      <if test="endingBuyerNumber != null">
+        ending_buyer_number = #{endingBuyerNumber,jdbcType=INTEGER},
+      </if>
+      <if test="adCopy != null">
+        ad_copy = #{adCopy,jdbcType=VARCHAR},
+      </if>
+      <if test="goldMemberPrice != null">
+        gold_member_price = #{goldMemberPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="platinumMemberPrice != null">
+        platinum_member_price = #{platinumMemberPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="diamondMemberPrice != null">
+        diamond_member_price = #{diamondMemberPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="company != null">
+        company = #{company,jdbcType=VARCHAR},
+      </if>
+      <if test="dxTag != null">
+        dx_tag = #{dxTag,jdbcType=BIT},
+      </if>
+      <if test="focusTitle != null">
+        focus_title = #{focusTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="focusImgCount != null">
+        focus_img_count = #{focusImgCount,jdbcType=VARCHAR},
+      </if>
+      <if test="focusBgColor != null">
+        focus_bg_color = #{focusBgColor,jdbcType=VARCHAR},
+      </if>
+      <if test="platform != null">
+        platform = #{platform,jdbcType=VARCHAR},
+      </if>
+      <if test="saleShortName != null">
+        sale_short_name = #{saleShortName,jdbcType=VARCHAR},
+      </if>
+      <if test="maxDiscountedPrice != null">
+        max_discounted_price = #{maxDiscountedPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="note != null">
+        note = #{note,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="descriptionImages != null">
+        description_images = #{descriptionImages,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="descriptionProperties != null">
+        description_properties = #{descriptionProperties,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="descriptionUsage != null">
+        description_usage = #{descriptionUsage,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="metaDescription != null">
+        meta_description = #{metaDescription,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="draftGuideComments != null">
+        draft_guide_comments = #{draftGuideComments,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="draftOurComments != null">
+        draft_our_comments = #{draftOurComments,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="draftRelatedHashIds != null">
+        draft_related_hash_ids = #{draftRelatedHashIds,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="draftMobileInfos != null">
+        draft_mobile_infos = #{draftMobileInfos,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="orderPromoCardSet != null">
+        order_promo_card_set = #{orderPromoCardSet,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="productDetailImages != null">
+        product_detail_images = #{productDetailImages,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="dealProductProperties != null">
+        deal_product_properties = #{dealProductProperties,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where hash_id = #{hashId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="model.tuanmei_operation.pojo.tuanmei_deal_draftsWithBLOBs">
+    update tuanmei_deal_drafts
+    set deal_id = #{dealId,jdbcType=INTEGER},
+      name = #{name,jdbcType=VARCHAR},
+      original_price = #{originalPrice,jdbcType=DOUBLE},
+      discounted_price = #{discountedPrice,jdbcType=DOUBLE},
+      discount = #{discount,jdbcType=VARCHAR},
+      buyer_number = #{buyerNumber,jdbcType=INTEGER},
+      purchase_lower_limit = #{purchaseLowerLimit,jdbcType=INTEGER},
+      purchase_upper_limit = #{purchaseUpperLimit,jdbcType=INTEGER},
+      start_time = #{startTime,jdbcType=INTEGER},
+      end_time = #{endTime,jdbcType=INTEGER},
+      status = #{status,jdbcType=TINYINT},
+      tipped_time = #{tippedTime,jdbcType=INTEGER},
+      stocks = #{stocks,jdbcType=INTEGER},
+      short_name = #{shortName,jdbcType=VARCHAR},
+      attributes = #{attributes,jdbcType=VARCHAR},
+      delivery_fee = #{deliveryFee,jdbcType=DOUBLE},
+      category = #{category,jdbcType=VARCHAR},
+      show_category = #{showCategory,jdbcType=VARCHAR},
+      deal_group_label = #{dealGroupLabel,jdbcType=VARCHAR},
+      site = #{site,jdbcType=VARCHAR},
+      real_buyer_number = #{realBuyerNumber,jdbcType=INTEGER},
+      sku_no = #{skuNo,jdbcType=VARCHAR},
+      meta_keywords = #{metaKeywords,jdbcType=VARCHAR},
+      draft_create_time = #{draftCreateTime,jdbcType=INTEGER},
+      draft_create_username = #{draftCreateUsername,jdbcType=VARCHAR},
+      draft_update_time = #{draftUpdateTime,jdbcType=INTEGER},
+      draft_update_username = #{draftUpdateUsername,jdbcType=VARCHAR},
+      draft_content_top_ad_image = #{draftContentTopAdImage,jdbcType=VARCHAR},
+      draft_content_top_ad_url = #{draftContentTopAdUrl,jdbcType=VARCHAR},
+      product_id = #{productId,jdbcType=INTEGER},
+      brand_id = #{brandId,jdbcType=INTEGER},
+      brand_label = #{brandLabel,jdbcType=VARCHAR},
+      redeem_lowest_total_price = #{redeemLowestTotalPrice,jdbcType=DECIMAL},
+      user_purchase_limit = #{userPurchaseLimit,jdbcType=INTEGER},
+      second_kill_time = #{secondKillTime,jdbcType=INTEGER},
+      medium_name = #{mediumName,jdbcType=VARCHAR},
+      is_b2c_deal = #{isB2cDeal,jdbcType=TINYINT},
+      related_deal_group_name = #{relatedDealGroupName,jdbcType=VARCHAR},
+      editor_username = #{editorUsername,jdbcType=VARCHAR},
+      shipping_system_id = #{shippingSystemId,jdbcType=INTEGER},
+      shipping_system_type = #{shippingSystemType,jdbcType=VARCHAR},
+      special_deal_group_name = #{specialDealGroupName,jdbcType=VARCHAR},
+      is_shown_in_home = #{isShownInHome,jdbcType=BIT},
+      update_editor = #{updateEditor,jdbcType=VARCHAR},
+      refund_policy = #{refundPolicy,jdbcType=VARCHAR},
+      sale_type = #{saleType,jdbcType=VARCHAR},
+      need_sync = #{needSync,jdbcType=TINYINT},
+      ending_buyer_number = #{endingBuyerNumber,jdbcType=INTEGER},
+      ad_copy = #{adCopy,jdbcType=VARCHAR},
+      gold_member_price = #{goldMemberPrice,jdbcType=DECIMAL},
+      platinum_member_price = #{platinumMemberPrice,jdbcType=DECIMAL},
+      diamond_member_price = #{diamondMemberPrice,jdbcType=DECIMAL},
+      company = #{company,jdbcType=VARCHAR},
+      dx_tag = #{dxTag,jdbcType=BIT},
+      focus_title = #{focusTitle,jdbcType=VARCHAR},
+      focus_img_count = #{focusImgCount,jdbcType=VARCHAR},
+      focus_bg_color = #{focusBgColor,jdbcType=VARCHAR},
+      platform = #{platform,jdbcType=VARCHAR},
+      sale_short_name = #{saleShortName,jdbcType=VARCHAR},
+      max_discounted_price = #{maxDiscountedPrice,jdbcType=DECIMAL},
+      note = #{note,jdbcType=LONGVARCHAR},
+      description = #{description,jdbcType=LONGVARCHAR},
+      description_images = #{descriptionImages,jdbcType=LONGVARCHAR},
+      description_properties = #{descriptionProperties,jdbcType=LONGVARCHAR},
+      description_usage = #{descriptionUsage,jdbcType=LONGVARCHAR},
+      meta_description = #{metaDescription,jdbcType=LONGVARCHAR},
+      draft_guide_comments = #{draftGuideComments,jdbcType=LONGVARCHAR},
+      draft_our_comments = #{draftOurComments,jdbcType=LONGVARCHAR},
+      draft_related_hash_ids = #{draftRelatedHashIds,jdbcType=LONGVARCHAR},
+      draft_mobile_infos = #{draftMobileInfos,jdbcType=LONGVARCHAR},
+      order_promo_card_set = #{orderPromoCardSet,jdbcType=LONGVARCHAR},
+      product_detail_images = #{productDetailImages,jdbcType=LONGVARCHAR},
+      deal_product_properties = #{dealProductProperties,jdbcType=LONGVARCHAR}
+    where hash_id = #{hashId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="model.tuanmei_operation.pojo.tuanmei_deal_drafts">
+    update tuanmei_deal_drafts
+    set deal_id = #{dealId,jdbcType=INTEGER},
+      name = #{name,jdbcType=VARCHAR},
+      original_price = #{originalPrice,jdbcType=DOUBLE},
+      discounted_price = #{discountedPrice,jdbcType=DOUBLE},
+      discount = #{discount,jdbcType=VARCHAR},
+      buyer_number = #{buyerNumber,jdbcType=INTEGER},
+      purchase_lower_limit = #{purchaseLowerLimit,jdbcType=INTEGER},
+      purchase_upper_limit = #{purchaseUpperLimit,jdbcType=INTEGER},
+      start_time = #{startTime,jdbcType=INTEGER},
+      end_time = #{endTime,jdbcType=INTEGER},
+      status = #{status,jdbcType=TINYINT},
+      tipped_time = #{tippedTime,jdbcType=INTEGER},
+      stocks = #{stocks,jdbcType=INTEGER},
+      short_name = #{shortName,jdbcType=VARCHAR},
+      attributes = #{attributes,jdbcType=VARCHAR},
+      delivery_fee = #{deliveryFee,jdbcType=DOUBLE},
+      category = #{category,jdbcType=VARCHAR},
+      show_category = #{showCategory,jdbcType=VARCHAR},
+      deal_group_label = #{dealGroupLabel,jdbcType=VARCHAR},
+      site = #{site,jdbcType=VARCHAR},
+      real_buyer_number = #{realBuyerNumber,jdbcType=INTEGER},
+      sku_no = #{skuNo,jdbcType=VARCHAR},
+      meta_keywords = #{metaKeywords,jdbcType=VARCHAR},
+      draft_create_time = #{draftCreateTime,jdbcType=INTEGER},
+      draft_create_username = #{draftCreateUsername,jdbcType=VARCHAR},
+      draft_update_time = #{draftUpdateTime,jdbcType=INTEGER},
+      draft_update_username = #{draftUpdateUsername,jdbcType=VARCHAR},
+      draft_content_top_ad_image = #{draftContentTopAdImage,jdbcType=VARCHAR},
+      draft_content_top_ad_url = #{draftContentTopAdUrl,jdbcType=VARCHAR},
+      product_id = #{productId,jdbcType=INTEGER},
+      brand_id = #{brandId,jdbcType=INTEGER},
+      brand_label = #{brandLabel,jdbcType=VARCHAR},
+      redeem_lowest_total_price = #{redeemLowestTotalPrice,jdbcType=DECIMAL},
+      user_purchase_limit = #{userPurchaseLimit,jdbcType=INTEGER},
+      second_kill_time = #{secondKillTime,jdbcType=INTEGER},
+      medium_name = #{mediumName,jdbcType=VARCHAR},
+      is_b2c_deal = #{isB2cDeal,jdbcType=TINYINT},
+      related_deal_group_name = #{relatedDealGroupName,jdbcType=VARCHAR},
+      editor_username = #{editorUsername,jdbcType=VARCHAR},
+      shipping_system_id = #{shippingSystemId,jdbcType=INTEGER},
+      shipping_system_type = #{shippingSystemType,jdbcType=VARCHAR},
+      special_deal_group_name = #{specialDealGroupName,jdbcType=VARCHAR},
+      is_shown_in_home = #{isShownInHome,jdbcType=BIT},
+      update_editor = #{updateEditor,jdbcType=VARCHAR},
+      refund_policy = #{refundPolicy,jdbcType=VARCHAR},
+      sale_type = #{saleType,jdbcType=VARCHAR},
+      need_sync = #{needSync,jdbcType=TINYINT},
+      ending_buyer_number = #{endingBuyerNumber,jdbcType=INTEGER},
+      ad_copy = #{adCopy,jdbcType=VARCHAR},
+      gold_member_price = #{goldMemberPrice,jdbcType=DECIMAL},
+      platinum_member_price = #{platinumMemberPrice,jdbcType=DECIMAL},
+      diamond_member_price = #{diamondMemberPrice,jdbcType=DECIMAL},
+      company = #{company,jdbcType=VARCHAR},
+      dx_tag = #{dxTag,jdbcType=BIT},
+      focus_title = #{focusTitle,jdbcType=VARCHAR},
+      focus_img_count = #{focusImgCount,jdbcType=VARCHAR},
+      focus_bg_color = #{focusBgColor,jdbcType=VARCHAR},
+      platform = #{platform,jdbcType=VARCHAR},
+      sale_short_name = #{saleShortName,jdbcType=VARCHAR},
+      max_discounted_price = #{maxDiscountedPrice,jdbcType=DECIMAL}
+    where hash_id = #{hashId,jdbcType=VARCHAR}
+  </update>
+  <select id="selectOneByExample" parameterType="model.tuanmei_operation.pojo.tuanmei_deal_draftsExample" resultMap="BaseResultMap">
+    <!--
+      WARNING - @mbg.generated
+      This element is automatically generated by MyBatis Generator, do not modify.
+      @project https://github.com/itfsw/mybatis-generator-plugin
+    -->
+    select
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tuanmei_deal_drafts
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    limit 1
+  </select>
+  <select id="selectOneByExampleWithBLOBs" parameterType="model.tuanmei_operation.pojo.tuanmei_deal_draftsExample" resultMap="ResultMapWithBLOBs">
+    <!--
+      WARNING - @mbg.generated
+      This element is automatically generated by MyBatis Generator, do not modify.
+      @project https://github.com/itfsw/mybatis-generator-plugin
+    -->
+    select
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from tuanmei_deal_drafts
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    limit 1
+  </select>
+</mapper>

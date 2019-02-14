@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="model.jumei_product.dao.jumei_mallMapper">
+  <resultMap id="BaseResultMap" type="model.jumei_product.pojo.jumei_mall">
+    <constructor>
+      <idArg column="mall_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="product_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="sale_type_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="shipping_system_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="status" javaType="java.lang.Boolean" jdbcType="BIT" />
+      <arg column="sku_min_price" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="sku_max_price" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="min_discount" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="sku_max_market_price" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="product_short_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="product_medium_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="product_long_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="update_time" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="update_user" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="first_online_time" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="fake_30day_buyer_number" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="real_30day_buyer_number" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="single_package_price" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="real_7day_buyer_number" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="7day_sales" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="30day_sales" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="category" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="merchant_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="min_tax" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="min_value_of_goods" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="first_sale_time" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="mall_sale_mode" javaType="java.lang.Boolean" jdbcType="BIT" />
+      <arg column="stock_sellable" javaType="java.lang.Boolean" jdbcType="BIT" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    mall_id, product_id, sale_type_id, shipping_system_id, status, sku_min_price, sku_max_price, 
+    min_discount, sku_max_market_price, product_short_name, product_medium_name, product_long_name, 
+    update_time, update_user, first_online_time, fake_30day_buyer_number, real_30day_buyer_number, 
+    single_package_price, real_7day_buyer_number, 7day_sales, 30day_sales, category, 
+    merchant_id, min_tax, min_value_of_goods, first_sale_time, mall_sale_mode, stock_sellable
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from jumei_mall
+    where mall_id = #{mallId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from jumei_mall
+    where mall_id = #{mallId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="model.jumei_product.pojo.jumei_mall">
+    insert into jumei_mall (mall_id, product_id, sale_type_id, 
+      shipping_system_id, status, sku_min_price, 
+      sku_max_price, min_discount, sku_max_market_price, 
+      product_short_name, product_medium_name, product_long_name, 
+      update_time, update_user, first_online_time, 
+      fake_30day_buyer_number, real_30day_buyer_number, 
+      single_package_price, real_7day_buyer_number, 
+      7day_sales, 30day_sales, category, 
+      merchant_id, min_tax, min_value_of_goods, 
+      first_sale_time, mall_sale_mode, stock_sellable
+      )
+    values (#{mallId,jdbcType=INTEGER}, #{productId,jdbcType=INTEGER}, #{saleTypeId,jdbcType=INTEGER}, 
+      #{shippingSystemId,jdbcType=INTEGER}, #{status,jdbcType=BIT}, #{skuMinPrice,jdbcType=DECIMAL}, 
+      #{skuMaxPrice,jdbcType=DECIMAL}, #{minDiscount,jdbcType=DECIMAL}, #{skuMaxMarketPrice,jdbcType=DECIMAL}, 
+      #{productShortName,jdbcType=VARCHAR}, #{productMediumName,jdbcType=VARCHAR}, #{productLongName,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=INTEGER}, #{updateUser,jdbcType=VARCHAR}, #{firstOnlineTime,jdbcType=INTEGER}, 
+      #{fake30dayBuyerNumber,jdbcType=INTEGER}, #{real30dayBuyerNumber,jdbcType=INTEGER}, 
+      #{singlePackagePrice,jdbcType=DECIMAL}, #{real7dayBuyerNumber,jdbcType=INTEGER}, 
+      #{i_7day_sales,jdbcType=DECIMAL}, #{i_30day_sales,jdbcType=DECIMAL}, #{category,jdbcType=VARCHAR}, 
+      #{merchantId,jdbcType=INTEGER}, #{minTax,jdbcType=DECIMAL}, #{minValueOfGoods,jdbcType=DECIMAL}, 
+      #{firstSaleTime,jdbcType=INTEGER}, #{mallSaleMode,jdbcType=BIT}, #{stockSellable,jdbcType=BIT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="model.jumei_product.pojo.jumei_mall">
+    insert into jumei_mall
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="mallId != null">
+        mall_id,
+      </if>
+      <if test="productId != null">
+        product_id,
+      </if>
+      <if test="saleTypeId != null">
+        sale_type_id,
+      </if>
+      <if test="shippingSystemId != null">
+        shipping_system_id,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="skuMinPrice != null">
+        sku_min_price,
+      </if>
+      <if test="skuMaxPrice != null">
+        sku_max_price,
+      </if>
+      <if test="minDiscount != null">
+        min_discount,
+      </if>
+      <if test="skuMaxMarketPrice != null">
+        sku_max_market_price,
+      </if>
+      <if test="productShortName != null">
+        product_short_name,
+      </if>
+      <if test="productMediumName != null">
+        product_medium_name,
+      </if>
+      <if test="productLongName != null">
+        product_long_name,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="updateUser != null">
+        update_user,
+      </if>
+      <if test="firstOnlineTime != null">
+        first_online_time,
+      </if>
+      <if test="fake30dayBuyerNumber != null">
+        fake_30day_buyer_number,
+      </if>
+      <if test="real30dayBuyerNumber != null">
+        real_30day_buyer_number,
+      </if>
+      <if test="singlePackagePrice != null">
+        single_package_price,
+      </if>
+      <if test="real7dayBuyerNumber != null">
+        real_7day_buyer_number,
+      </if>
+      <if test="i_7day_sales != null">
+        7day_sales,
+      </if>
+      <if test="i_30day_sales != null">
+        30day_sales,
+      </if>
+      <if test="category != null">
+        category,
+      </if>
+      <if test="merchantId != null">
+        merchant_id,
+      </if>
+      <if test="minTax != null">
+        min_tax,
+      </if>
+      <if test="minValueOfGoods != null">
+        min_value_of_goods,
+      </if>
+      <if test="firstSaleTime != null">
+        first_sale_time,
+      </if>
+      <if test="mallSaleMode != null">
+        mall_sale_mode,
+      </if>
+      <if test="stockSellable != null">
+        stock_sellable,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="mallId != null">
+        #{mallId,jdbcType=INTEGER},
+      </if>
+      <if test="productId != null">
+        #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="saleTypeId != null">
+        #{saleTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="shippingSystemId != null">
+        #{shippingSystemId,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=BIT},
+      </if>
+      <if test="skuMinPrice != null">
+        #{skuMinPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="skuMaxPrice != null">
+        #{skuMaxPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="minDiscount != null">
+        #{minDiscount,jdbcType=DECIMAL},
+      </if>
+      <if test="skuMaxMarketPrice != null">
+        #{skuMaxMarketPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="productShortName != null">
+        #{productShortName,jdbcType=VARCHAR},
+      </if>
+      <if test="productMediumName != null">
+        #{productMediumName,jdbcType=VARCHAR},
+      </if>
+      <if test="productLongName != null">
+        #{productLongName,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=INTEGER},
+      </if>
+      <if test="updateUser != null">
+        #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="firstOnlineTime != null">
+        #{firstOnlineTime,jdbcType=INTEGER},
+      </if>
+      <if test="fake30dayBuyerNumber != null">
+        #{fake30dayBuyerNumber,jdbcType=INTEGER},
+      </if>
+      <if test="real30dayBuyerNumber != null">
+        #{real30dayBuyerNumber,jdbcType=INTEGER},
+      </if>
+      <if test="singlePackagePrice != null">
+        #{singlePackagePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="real7dayBuyerNumber != null">
+        #{real7dayBuyerNumber,jdbcType=INTEGER},
+      </if>
+      <if test="i_7day_sales != null">
+        #{i_7day_sales,jdbcType=DECIMAL},
+      </if>
+      <if test="i_30day_sales != null">
+        #{i_30day_sales,jdbcType=DECIMAL},
+      </if>
+      <if test="category != null">
+        #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantId != null">
+        #{merchantId,jdbcType=INTEGER},
+      </if>
+      <if test="minTax != null">
+        #{minTax,jdbcType=DECIMAL},
+      </if>
+      <if test="minValueOfGoods != null">
+        #{minValueOfGoods,jdbcType=DECIMAL},
+      </if>
+      <if test="firstSaleTime != null">
+        #{firstSaleTime,jdbcType=INTEGER},
+      </if>
+      <if test="mallSaleMode != null">
+        #{mallSaleMode,jdbcType=BIT},
+      </if>
+      <if test="stockSellable != null">
+        #{stockSellable,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="model.jumei_product.pojo.jumei_mall">
+    update jumei_mall
+    <set>
+      <if test="productId != null">
+        product_id = #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="saleTypeId != null">
+        sale_type_id = #{saleTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="shippingSystemId != null">
+        shipping_system_id = #{shippingSystemId,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=BIT},
+      </if>
+      <if test="skuMinPrice != null">
+        sku_min_price = #{skuMinPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="skuMaxPrice != null">
+        sku_max_price = #{skuMaxPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="minDiscount != null">
+        min_discount = #{minDiscount,jdbcType=DECIMAL},
+      </if>
+      <if test="skuMaxMarketPrice != null">
+        sku_max_market_price = #{skuMaxMarketPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="productShortName != null">
+        product_short_name = #{productShortName,jdbcType=VARCHAR},
+      </if>
+      <if test="productMediumName != null">
+        product_medium_name = #{productMediumName,jdbcType=VARCHAR},
+      </if>
+      <if test="productLongName != null">
+        product_long_name = #{productLongName,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=INTEGER},
+      </if>
+      <if test="updateUser != null">
+        update_user = #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="firstOnlineTime != null">
+        first_online_time = #{firstOnlineTime,jdbcType=INTEGER},
+      </if>
+      <if test="fake30dayBuyerNumber != null">
+        fake_30day_buyer_number = #{fake30dayBuyerNumber,jdbcType=INTEGER},
+      </if>
+      <if test="real30dayBuyerNumber != null">
+        real_30day_buyer_number = #{real30dayBuyerNumber,jdbcType=INTEGER},
+      </if>
+      <if test="singlePackagePrice != null">
+        single_package_price = #{singlePackagePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="real7dayBuyerNumber != null">
+        real_7day_buyer_number = #{real7dayBuyerNumber,jdbcType=INTEGER},
+      </if>
+      <if test="i_7day_sales != null">
+        7day_sales = #{i_7day_sales,jdbcType=DECIMAL},
+      </if>
+      <if test="i_30day_sales != null">
+        30day_sales = #{i_30day_sales,jdbcType=DECIMAL},
+      </if>
+      <if test="category != null">
+        category = #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantId != null">
+        merchant_id = #{merchantId,jdbcType=INTEGER},
+      </if>
+      <if test="minTax != null">
+        min_tax = #{minTax,jdbcType=DECIMAL},
+      </if>
+      <if test="minValueOfGoods != null">
+        min_value_of_goods = #{minValueOfGoods,jdbcType=DECIMAL},
+      </if>
+      <if test="firstSaleTime != null">
+        first_sale_time = #{firstSaleTime,jdbcType=INTEGER},
+      </if>
+      <if test="mallSaleMode != null">
+        mall_sale_mode = #{mallSaleMode,jdbcType=BIT},
+      </if>
+      <if test="stockSellable != null">
+        stock_sellable = #{stockSellable,jdbcType=BIT},
+      </if>
+    </set>
+    where mall_id = #{mallId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="model.jumei_product.pojo.jumei_mall">
+    update jumei_mall
+    set product_id = #{productId,jdbcType=INTEGER},
+      sale_type_id = #{saleTypeId,jdbcType=INTEGER},
+      shipping_system_id = #{shippingSystemId,jdbcType=INTEGER},
+      status = #{status,jdbcType=BIT},
+      sku_min_price = #{skuMinPrice,jdbcType=DECIMAL},
+      sku_max_price = #{skuMaxPrice,jdbcType=DECIMAL},
+      min_discount = #{minDiscount,jdbcType=DECIMAL},
+      sku_max_market_price = #{skuMaxMarketPrice,jdbcType=DECIMAL},
+      product_short_name = #{productShortName,jdbcType=VARCHAR},
+      product_medium_name = #{productMediumName,jdbcType=VARCHAR},
+      product_long_name = #{productLongName,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=INTEGER},
+      update_user = #{updateUser,jdbcType=VARCHAR},
+      first_online_time = #{firstOnlineTime,jdbcType=INTEGER},
+      fake_30day_buyer_number = #{fake30dayBuyerNumber,jdbcType=INTEGER},
+      real_30day_buyer_number = #{real30dayBuyerNumber,jdbcType=INTEGER},
+      single_package_price = #{singlePackagePrice,jdbcType=DECIMAL},
+      real_7day_buyer_number = #{real7dayBuyerNumber,jdbcType=INTEGER},
+      7day_sales = #{i_7day_sales,jdbcType=DECIMAL},
+      30day_sales = #{i_30day_sales,jdbcType=DECIMAL},
+      category = #{category,jdbcType=VARCHAR},
+      merchant_id = #{merchantId,jdbcType=INTEGER},
+      min_tax = #{minTax,jdbcType=DECIMAL},
+      min_value_of_goods = #{minValueOfGoods,jdbcType=DECIMAL},
+      first_sale_time = #{firstSaleTime,jdbcType=INTEGER},
+      mall_sale_mode = #{mallSaleMode,jdbcType=BIT},
+      stock_sellable = #{stockSellable,jdbcType=BIT}
+    where mall_id = #{mallId,jdbcType=INTEGER}
+  </update>
+</mapper>
